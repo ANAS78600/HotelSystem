@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using HotelClasses;
+
 
 
 namespace HotelTesting
@@ -108,16 +110,4 @@ namespace HotelTesting
         }
     }
 
-
-
-    class clsSupplier
-    {
-        public bool Active { get; internal set; }
-        public DateTime DateAdded { get; internal set; }
-        public int SupplierNo { get; internal set; }
-        public string SupplierAddress { get; internal set; }
-        public string SupplierFirstName { get; internal set; }
-        public string SupplierLastName { get; internal set; }
-        public string SupplierTel { get; internal set; }
-    }
 }

@@ -3,11 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBackOffice", "HotelBackOffice\HotelBackOffice.csproj", "{CD29A887-9969-4D59-BFF4-501D9F0AAE9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelBackOffice", "HotelBackOffice\HotelBackOffice.csproj", "{CD29A887-9969-4D59-BFF4-501D9F0AAE9D}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelFrontOffice", "HotelFrontOffice\", "{0FD2EE9E-D6B3-4B06-96E6-A0FE2131A222}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{0481f6f0-8763-4851-895e-4d7f779323fd}|HotelClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_12088"
 		Debug.AspNetCompiler.PhysicalPath = "HotelFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_12088\"

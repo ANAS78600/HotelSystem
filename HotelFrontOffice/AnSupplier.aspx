@@ -26,6 +26,7 @@
         <asp:Label ID="IblError" runat="server" style="z-index: 1; left: 55px; top: 451px; position: absolute" Text="[IblError]"></asp:Label>
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 40px; top: 500px; position: absolute; height: 36px; width: 49px" Text="OK" OnClick="btnOK_Click" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 121px; top: 502px; position: absolute; height: 33px; width: 88px" Text="Cancel" />
+        <asp:Button ID="btnFind" runat="server" style="z-index: 1; left: 475px; top: 113px; position: absolute" Text="Find" OnClick="btnFind_Click" />
     </form>
 </body>
 </html>

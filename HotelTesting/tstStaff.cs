@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using HotelClasses;
-//whatever
+
 
 namespace HotelTesting
 {
@@ -29,7 +29,7 @@ namespace HotelTesting
             //test to see that the 2 values are the same
             Assert.AreEqual(AStaff.Active, TestData);
         }
-        
+
         [TestMethod]
         public void DateAddedStaffOK()
         {
@@ -44,7 +44,7 @@ namespace HotelTesting
         }
 
         [TestMethod]
-        public void StaffNoOk()
+        public void StaffNopropertyOk()
         {
             //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
@@ -94,9 +94,91 @@ namespace HotelTesting
             Assert.AreEqual(AStaff.StaffSalary, TestData);
         }
 
-    }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 StaffNo = 1;
+            //invoke the method
+            Found = AStaff.Find(StaffNo);
+            //test to see the result is true
+            Assert.IsTrue(Found); 
+        }
 
+        [TestMethod]
+        public void TestStaffNoFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assuming it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StaffNo = 21;
+            //invoke the method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.StaffNo != 21);
+            {
+                OK = false;
+            }
+            //test to see the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assuming it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StaffNo = 21;
+            //invoke the method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.DateAdded != Convert.ToDateTime("16/09/2015"));
+            {
+                OK = false;
+            }
+            //test to see the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assuming it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StaffNo = 21;
+            //invoke the method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.Active != true);
+            {
+                OK = false;
+            }
+            //test to see the result is true
+            Assert.IsTrue(OK);
+        }
+
+    }
 }
+
+
 
 
 

@@ -11,5 +11,6 @@ namespace HotelClasses
         public string SupplierFirstName { get; set; }
         public string SupplierLastName { get; set; }
         public string SupplierTel { get; set; }
+        
     }
 }

@@ -11,7 +11,7 @@
         <div>
         </div>
         <asp:Label ID="lblSupplierNo" runat="server" style="z-index: 1; left: 65px; top: 119px; position: absolute" Text="SupplierNo"></asp:Label>
-        <asp:Label ID="lblSupplierFirstName" runat="server" style="z-index: 1; left: 58px; top: 166px; position: absolute" Text="Supplier First Name"></asp:Label>
+        <asp:Label ID="lblSupplierFirstName" runat="server" style="z-index: 1; left: 58px; top: 166px; position: absolute; height: 19px;" Text="Supplier First Name"></asp:Label>
         <asp:Label ID="lblSupplierLastName" runat="server" style="z-index: 1; left: 62px; top: 212px; position: absolute" Text="Supplier Last Name"></asp:Label>
         <asp:Label ID="Label5" runat="server" style="z-index: 1; left: 61px; top: 256px; position: absolute" Text="Supplier Tel"></asp:Label>
         <asp:Label ID="Label6" runat="server" style="z-index: 1; left: 56px; top: 300px; position: absolute" Text="Supplier Address"></asp:Label>

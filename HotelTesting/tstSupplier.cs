@@ -108,6 +108,183 @@ namespace HotelTesting
             //test to see that the 2 values are the same
             Assert.AreEqual(AnSupplier.SupplierTel, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //test to see if the results is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestSupplierNoFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the supplier no
+            if (AnSupplier.SupplierNo != 17)
+            {
+                OK = false;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the property
+            if (AnSupplier.DateAdded != Convert.ToDateTime("23/05/2019"))
+            {
+                OK = false;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the property
+            if (AnSupplier.Active != true)
+            {
+                OK = true;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the property
+            if (AnSupplier.SupplierAddress != "78 Kent Road")
+            {
+                OK = true;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSupplierFirstNameFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the property
+            if (AnSupplier.SupplierFirstName != "Shuyab")
+            {
+                OK = true;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSupplierLastNameFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the property
+            if (AnSupplier.SupplierFirstName != "Patel")
+            {
+                OK = true;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSupplierTelFound()
+        {
+            //create a instancw of the class we want to make
+            clsSupplier AnSupplier = new clsSupplier();
+            //bollean variable to store the restults of the valdation
+            Boolean Found = false;
+            //boolean variable to record if data is ok
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierNo = 17;
+            //invoke the method
+            Found = AnSupplier.Find(SupplierNo);
+            //check the property
+            if (AnSupplier.SupplierTel != "07967129671")
+            {
+                OK = true;
+            }
+            //test to see if the results is true
+            Assert.IsTrue(OK);
+        }
+
+
+
+
     }
+
+
+
+
 
 }

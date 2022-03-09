@@ -17,7 +17,7 @@ namespace HotelClasses
         private string mStaffGender;
 
         //public property StaffNo
-        public int StaffNo
+        public Int32 StaffNo
         {
             get
             {

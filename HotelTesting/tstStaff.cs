@@ -31,7 +31,7 @@ namespace HotelTesting
         }
 
         [TestMethod]
-        public void DateAddedStaffOK()
+        public void DateAddedPropertyOK()
         {
             //create an instance of the class we want to make
             clsStaff AStaff = new clsStaff();

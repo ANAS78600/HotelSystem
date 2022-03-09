@@ -9,6 +9,8 @@ namespace HotelClasses
 {
     public class clsCustomer
     {
+        //private data member for this customer id
+        private Int32 mCustomerID;
         public bool Active { get; set; }
         public DateTime DateAdded { get; set; }
         public int CustomerID { get; set; }

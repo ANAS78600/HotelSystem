@@ -126,16 +126,32 @@ namespace HotelClasses
 
         public bool Find(int supplierNo)
         {
-            //set the private data member to the test data value
-            mSupplierNo = 17;
-            mDateAdded = Convert.ToDateTime("23/05/2019");
-            mActive = true;
-            mSupplierFirstName = "Shuyab";
-            mSupplierLastName = "patel";
-            mSupplierAddress = "78 Kent Road";
-            mSupplierTel = "07967129671";
-            //always return true
-            return true;
+            //create AN INSTANCE OF THE DATA CONNECTION
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the supplier no to search for
+            DB.AddParameter("@SupplierNo", supplierNo);
+            //execute the stored procedure
+            DB.Execute("SPROC_tblSupplier_FilterbySupplierNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data memeber
+                mSupplierNo = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierNo"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mSupplierFirstName = Convert.ToString(DB.DataTable.Rows[0]["SupplierFirstName"]);
+                mSupplierLastName = Convert.ToString(DB.DataTable.Rows[0]["SupplierLastName"]);
+                mSupplierAddress = Convert.ToString(DB.DataTable.Rows[0]["SupplierAddress"]);
+                mSupplierTel = Convert.ToString(DB.DataTable.Rows[0]["SupplierTel"]);
+                //always return true
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indication a problem
+                return false;
+            }
         }
     }
 }

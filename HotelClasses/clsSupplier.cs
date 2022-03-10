@@ -144,5 +144,94 @@ namespace HotelClasses
                 return false;
             }
         }
+
+        public string Valid(string SupplierFirstName, string SupplierLastName,string SupplierTel, string SupplierAddress, string DateAdded)
+        {
+            //create a string varaible to store the error
+            string Error = "";
+            //create a temporary variable to store the data value
+            DateTime DateTemp;
+
+            //if the FirstName is Blank
+            if (SupplierFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Supplier First Name may not be blank : ";
+            }
+            //if the First name is higher than 10 character
+            if(SupplierFirstName.Length> 10)
+            {
+                //record the error
+                Error = Error + "The Supplier First Name must be less than 10 Characters : ";
+            }
+
+            //if the LastName is Blank
+            if (SupplierLastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Supplier Last Name may not be blank : ";
+            }
+            //if the First name is higher than 10 character
+            if (SupplierLastName.Length> 10)
+            {
+                //record the error
+                Error = Error + "The Supplier Last Name must be less than 10 Characters : ";
+            }
+
+            //if the Supplier Tel is Blank
+            if (SupplierTel.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Supplier Tel may not be blank : ";
+            }
+            //if the First name is higher than 10 character
+            if (SupplierTel.Length> 11)
+            {
+                //record the error
+                Error = Error + "The Supplier Tel must be less than 11 Digits : ";
+            }
+
+            //if the Address is blank
+            if (SupplierAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Supplier Address may not be blank : ";
+            }
+            //if the First name is higher than 10 character
+            if (SupplierAddress.Length> 30)
+            {
+                //record the error
+                Error = Error + "The Supplier Address must be less than 30 Characters : ";
+            }
+
+            try
+            {
+                //copy the dateadded value to the datetemp variable
+                DateTemp = Convert.ToDateTime(DateAdded);
+
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+
+                }
+                //check to see if the data is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the erro
+                    Error = Error + "The date cannot be in the Future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+                //return any error message
+                return Error;
+        }
+                    
+
     }
 }

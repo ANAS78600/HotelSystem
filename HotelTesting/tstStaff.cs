@@ -128,7 +128,7 @@ namespace HotelTesting
                 OK = false;
             }
             //test to see the result is true
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
 
         [TestMethod]
@@ -150,7 +150,7 @@ namespace HotelTesting
                 OK = false;
             }
             //test to see the result is true
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
 
         [TestMethod]
@@ -172,7 +172,7 @@ namespace HotelTesting
                 OK = false;
             }
             //test to see the result is true
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
 
     }

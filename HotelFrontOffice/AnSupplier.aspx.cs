@@ -18,12 +18,42 @@ public partial class AnSupplier : System.Web.UI.Page
     {
         //create a new instance of clsSupplier
         clsSupplier AnSupplier = new clsSupplier();
-        //capture the supplier No
-        AnSupplier.SupplierFirstName = txtSupplierFirstName.Text;
-        //store the supplier in the session object
-        Session["AnSupplier"] = AnSupplier;
-        //redirect to the viewer page
-        Response.Redirect("SupplierViewer.aspx");
+        //capture the first name
+        string SupplierFirstName = txtSupplierFirstName.Text;
+        //capture the last name 
+        string SupplierLastName = txtSupplierLastName.Text;
+        //capture the address
+        string SupplierAddress = txtSupplierAddress.Text;
+        //capture the supplier tel
+        string SupplierTel = txtSupplierTel.Text;
+        //capture date added
+        string DateAdded = txtDateAdded.Text;
+        //variable to store any error message
+        string Error = "";
+        //validate the data
+        Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
+        if (Error == "")
+        {
+            //capture the first name
+            AnSupplier.SupplierFirstName = SupplierFirstName;
+            //capture last name
+            AnSupplier.SupplierLastName = SupplierLastName;
+            //capture the address
+            AnSupplier.SupplierAddress = SupplierAddress;
+            //cature the tel
+            AnSupplier.SupplierTel = SupplierTel;
+            //capture the date added
+            AnSupplier.DateAdded = Convert.ToDateTime(DateAdded);
+            //store the supplier in the session object
+            Session["AnSupplier"] = AnSupplier;
+            //redirect to the viewer page
+            Response.Redirect("SupplierViewer.aspx");
+        }
+        else
+        {
+            //display the error massage
+            IblError.Text = Error;
+        }
     }
 
 

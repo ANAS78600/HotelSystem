@@ -24,4 +24,9 @@ public partial class AStaff : System.Web.UI.Page
         //redirect to the viewer page
         Response.Redirect("StaffViewer.aspx");
     }
+
+    protected void btnOK_Click1(object sender, EventArgs e)
+    {
+
+    }
 }

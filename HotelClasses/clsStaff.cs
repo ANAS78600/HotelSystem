@@ -13,7 +13,7 @@ namespace HotelClasses
         private Boolean mActive;
         private string mStaffFirstName;
         private string mStaffLastName;
-        private string mStaffSalary;
+        private Int32 mStaffSalary;
         private string mStaffGender;
 
         //public property StaffNo
@@ -93,7 +93,7 @@ namespace HotelClasses
         }
 
         //salary public property
-        public string StaffSalary
+        public Int32 StaffSalary
         {
             get
             {
@@ -126,18 +126,32 @@ namespace HotelClasses
 
         public bool Find(int StaffNo)
         {
-            //set the private data members to the test data value
-            mStaffNo = 21;
-            mDateAdded = Convert.ToDateTime("16/09/2015");    
-            mActive = true;
-            mStaffFirstName = "Test First Name";
-            mStaffLastName = "Test Last Name";
-            mStaffSalary = "12345";
-            mStaffGender = "M";
-
-
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the staffno to search for
+            DB.AddParameter("@StafffNo", StaffNo);
+            //execute stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffNo");
+            //if one record is found 
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mStaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
+                mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
+                mStaffSalary = Convert.ToInt32(DB.DataTable.Rows[0]["StaffSalary"]);
+                mStaffGender = Convert.ToString(DB.DataTable.Rows[0]["StaffGender"]);
+                //return that everything worked ok
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }

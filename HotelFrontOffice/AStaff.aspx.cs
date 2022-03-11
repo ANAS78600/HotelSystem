@@ -18,7 +18,7 @@ public partial class AStaff : System.Web.UI.Page
         //create a new instance of clsStaff
         clsStaff AStaff = new clsStaff();
         //capture the StaffNo
-        AStaff.StaffNo = txtStaffNo.Text;
+        AStaff.StaffNo = Convert.ToInt32(txtStaffNo.Text);
         //store the staff in the session object
         Session["AStaff"] = AStaff;
         //redirect to the viewer page

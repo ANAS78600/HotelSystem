@@ -87,7 +87,7 @@ namespace HotelTesting
             //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "25000";
+            Int32 TestData = 25000;
             //assign the data to the property
             AStaff.StaffSalary = TestData;
             //test to see that the 2 values are the same
@@ -102,7 +102,7 @@ namespace HotelTesting
             //boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffNo = 1;
+            Int32 StaffNo = 21;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //test to see the result is true
@@ -123,7 +123,7 @@ namespace HotelTesting
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the staff no
-            if (AStaff.StaffNo != 21);
+            if (AStaff.StaffNo != 21)
             {
                 OK = false;
             }
@@ -145,9 +145,9 @@ namespace HotelTesting
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the staff no
-            if (AStaff.DateAdded != Convert.ToDateTime("16/09/2015"));
+            if (AStaff.DateAdded != Convert.ToDateTime("16/09/2015"))
             {
-                OK = false;
+                OK = false; 
             }
             //test to see the result is true
             Assert.IsFalse(OK);
@@ -162,12 +162,12 @@ namespace HotelTesting
             Boolean Found = false;
             //boolean variable to record if data is OK (assuming it is)
             Boolean OK = true;
-            //create some test data to use with the method
+            //create some test data to use with the method 
             Int32 StaffNo = 21;
             //invoke the method
             Found = AStaff.Find(StaffNo);
             //check the staff no
-            if (AStaff.Active != true);
+            if (AStaff.Active != true)
             {
                 OK = false;
             }

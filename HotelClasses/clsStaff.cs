@@ -129,7 +129,7 @@ namespace HotelClasses
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the staffno to search for
-            DB.AddParameter("@StafffNo", StaffNo);
+            DB.AddParameter("@StaffNo", StaffNo);
             //execute stored procedure
             DB.Execute("sproc_tblStaff_FilterByStaffNo");
             //if one record is found 
@@ -139,10 +139,10 @@ namespace HotelClasses
                 mStaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
-                mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
-                mStaffSalary = Convert.ToInt32(DB.DataTable.Rows[0]["StaffSalary"]);
-                mStaffGender = Convert.ToString(DB.DataTable.Rows[0]["StaffGender"]);
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mStaffSalary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);
+                mStaffGender = Convert.ToString(DB.DataTable.Rows[0]["Gender"]);
                 //return that everything worked ok
                 return true;
             }

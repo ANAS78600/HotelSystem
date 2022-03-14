@@ -21,7 +21,7 @@
         <asp:Label ID="lblTel" runat="server" style="z-index: 1; left: 64px; top: 177px; position: absolute" Text="Tel"></asp:Label>
         <asp:Label ID="lblAddress" runat="server" style="z-index: 1; left: 63px; top: 204px; position: absolute" Text=" Address"></asp:Label>
         <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 65px; top: 239px; position: absolute" Text="Date Added"></asp:Label>
-        <asp:TextBox ID="txtCustomerID" runat="server" style="z-index: 1; left: 205px; top: 88px; position: absolute" OnTextChanged="txtSupplierNo_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtCustomerID" runat="server" style="z-index: 1; left: 205px; top: 88px; position: absolute" ></asp:TextBox>
         <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 203px; top: 116px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 201px; top: 143px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtTel" runat="server" style="z-index: 1; left: 203px; top: 170px; position: absolute"></asp:TextBox>

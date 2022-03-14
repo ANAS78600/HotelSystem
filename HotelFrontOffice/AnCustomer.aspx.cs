@@ -30,10 +30,5 @@ public partial class AnCustomer : System.Web.UI.Page
         //redirect to the viewer page
         Response.Redirect("CustomerViewer.aspx");
     }
-
-    protected void txtSupplierNo_TextChanged(object sender, EventArgs e)
-    {
-
-    }
 }
 

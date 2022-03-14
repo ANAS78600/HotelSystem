@@ -17,7 +17,7 @@ namespace HotelTesting
             Assert.IsNotNull(AnCustomer);
         }
         [TestMethod]
-        public void ActivePropertyOK()
+        public void ActiveOK()
         {
             //create an instance for the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -29,7 +29,7 @@ namespace HotelTesting
             Assert.AreEqual(AnCustomer.Active, TestData);
         }
         [TestMethod]
-        public void DateAddedPropertyOK()
+        public void DateAddedOK()
         {
             //create an instance for the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -42,7 +42,7 @@ namespace HotelTesting
         }
 
         [TestMethod]
-        public void CustomerIDPropertyOK()
+        public void CustomerIDOK()
         {
             //create an instance for the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
@@ -54,12 +54,12 @@ namespace HotelTesting
             Assert.AreEqual(AnCustomer.CustomerID, TestData);
         }
         [TestMethod]
-        public void FirstNamePropertyOK()
+        public void FirstNameOK()
         {
             //create an instance for the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to assign to the propert
-            String FirstName = "Matt";
+            string TestData = "Matt";
             //assign the data to the property
             AnCustomer.FirstName = TestData;
             //test to see that the two values are the same
@@ -98,11 +98,11 @@ namespace HotelTesting
             //boolean variable to store the restults of the valdation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //test to see if the results is true
-            Assert.IsTrue(Found);
+            Assert.IsFalse(Found);
         }
         [TestMethod]
         public void TestCustomerIDFound()
@@ -114,16 +114,16 @@ namespace HotelTesting
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the supplier no
-            if (AnCustomer.CustomerID != 3)
+            if (AnCustomer.CustomerID != 5)
             {
                 OK = false;
             }
             //test to see if the results is true
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
         [TestMethod]
         public void TestDateAddedFound()
@@ -135,7 +135,7 @@ namespace HotelTesting
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the property
@@ -144,7 +144,7 @@ namespace HotelTesting
                 OK = false;
             }
             //test to see if the results is true
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
         [TestMethod]
         public void TestActiveFound()
@@ -156,7 +156,7 @@ namespace HotelTesting
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the property
@@ -177,7 +177,7 @@ namespace HotelTesting
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the property
@@ -193,12 +193,12 @@ namespace HotelTesting
         {
             //create a instancw of the class we want to make
             clsCustomer AnCustomer = new clsCustomer();
-            //bollean variable to store the restults of the valdation
+            //boolean variable to store the restults of the valdation
             Boolean Found = false;
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the property
@@ -219,7 +219,7 @@ namespace HotelTesting
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the property
@@ -240,7 +240,7 @@ namespace HotelTesting
             //boolean variable to record if data is ok
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 3;
+            Int32 CustomerID = 5;
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the property
@@ -252,121 +252,5 @@ namespace HotelTesting
             Assert.IsTrue(OK);
         }
 
-
-    }
-
-    class clsCustomer
-    {
-        public clsCustomer()
-        {
-        }
-        //private data member for this customer id
-        
-        private Boolean mActive;
-        public bool Active 
-        {
-            get
-            {
-                return mActive;
-            }
-            set
-            {
-                mActive = value;
-            }   
-        }
-        //Date Added private member variable
-        private DateTime mDateAdded;
-        public DateTime DateAdded
-        {
-            get
-            {
-                return mDateAdded;
-            }
-            set
-            {
-                mDateAdded = value;
-            }
-        }
-        //customer id public property
-        private Int32 mCustomerID;
-        public int CustomerID
-        {
-            get
-            {
-                return mCustomerID;
-            }
-            set
-            {
-                mCustomerID = value;
-            }
-        
-        }
-        private string mFirstName;  
-        public object FirstName 
-        { 
-            get
-            {
-                return mFirstName;
-            }
-                
-            set
-            {
-                mFirstName = (string)value;
-            }
-        
-        }
-        private string mLastName;
-        public string LastName 
-        { 
-            get
-            {
-                return mLastName;
-            }
-            set
-            {
-                mLastName = value;
-            }
-        }
-        private string mTel;
-        public string Tel 
-        { 
-            get
-            {
-                return mTel;
-            }
-            set
-            {
-                mTel = value;
-            }
-       
-        }
-        private string mAddress;
-        public string Address 
-        { 
-            get
-            {
-                return mAddress;
-            }
-                
-            set
-            {
-                mAddress = value;
-            }
-        
-        }
-
-        public bool Find(int customerID)
-        {
-            //set the private data members to the test data value 
-            mCustomerID = 3;
-            mDateAdded =Convert.ToDateTime("23/05/2019");
-            mAddress = "12 Round Road";
-            mFirstName = "Matt";
-            mLastName = "Smith";
-            mTel = "07934563210";
-            mActive = true;
-            //always return true
-            return true;
-        }
     }
 }

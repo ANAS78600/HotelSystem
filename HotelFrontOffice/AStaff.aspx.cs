@@ -17,18 +17,46 @@ public partial class AStaff : System.Web.UI.Page
     {
         //create a new instance of clsStaff
         clsStaff AStaff = new clsStaff();
-        //capture the StaffNo
-        AStaff.StaffNo = Convert.ToInt32(txtStaffNo.Text);
-        //store the staff in the session object
-        Session["AStaff"] = AStaff;
-        //redirect to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        //capture the StaffFirstName
+        string StaffFirstName = txtFirstName.Text;
+        //capture the StaffLastName
+        string StaffLastName = txtLastName.Text;
+        //capture the Salary
+        string StaffSalary = txtSalary.Text;
+        //capture the StaffDateAdded
+        string DateAdded = txtDateAdded.Text;
+        //capture the STaffGender
+        string StaffGender = txtGender.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffSalary, StaffGender, DateAdded);
+        if(Error =="")
+            { 
+                //capture the StaffNo
+                AStaff.StaffNo = Convert.ToInt32(txtStaffNo.Text);
+                //capture the StaffFirstName
+                AStaff.StaffFirstName = txtFirstName.Text;
+                //capture the StaffLastName
+                AStaff.StaffLastName = txtLastName.Text;
+                //capture the Salary
+                AStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+                //capture the StaffDateAdded
+                AStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                //capture the STaffGender
+                AStaff.StaffGender = txtGender.Text;
+                //store the staff in the session object
+                Session["AStaff"] = AStaff;
+                //redirect to the viewer page
+                Response.Write("StaffViewer.aspx");
+            }
+        else
+            {
+            //display the error message
+            lblError.Text = Error;
+            }
     }
 
-    protected void btnOK_Click1(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnFind_Click(object sender, EventArgs e)
     {

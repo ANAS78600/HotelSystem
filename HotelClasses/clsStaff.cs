@@ -161,12 +161,82 @@ namespace HotelClasses
         {
             //create a string variable to store the error
             String Error = "";
+            DateTime DateTemp;
+
             //if the StaffFirstName is blank
             if(StaffFirstName.Length == 0)
             {
                 //record the error
-                Error = Error + "Staff First Name must not be left blank :";
+                Error = Error + "Staff first name must not be left blank :  ";
             }
+            //if the StaffFirstName is greater than 25 characters
+            if (StaffFirstName.Length > 25)
+            {
+                //record the error
+                Error = Error + "Staff first name must not be more than 25 characters";
+            }
+
+            //if the StaffLastName is blank
+            if (StaffLastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "Staff last name must not be left blank :  ";
+            }
+            //if the StaffLastName is greater than 25 characters
+            if (StaffLastName.Length > 25)
+            {
+                //record the error
+                Error = Error + "Staff last name must not be more than 25 characters";
+            }
+
+            //if the StaffFirstName is blank
+            if (StaffGender.Length == 0)
+            {
+                //record the error
+                Error = Error + "Staff gender must not be left blank :  ";
+            }
+            //if the StaffFirstName is greater than 25 characters
+            if (StaffGender.Length > 1)
+            {
+                //record the error
+                Error = Error + "Staff gender must not be more than 1 characters";
+            }
+
+            //if the StaffSalary is Blank
+            if (StaffSalary.Length == 0)
+            {
+                //record the error
+                Error = Error + "The staff salary must not be blank : ";
+            }
+            //if the StaffSalary is higher than 6 character
+            if (StaffSalary.Length > 6)
+            {
+                //record the error
+                Error = Error + "The staff salary must be less than 6 Digits : ";
+            }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(DateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see is the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
             //return any error message
             return Error;
         }

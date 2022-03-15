@@ -153,5 +153,22 @@ namespace HotelClasses
                 return false;
             }
         }
+
+
+        
+
+        public string Valid(string StaffFirstName, string StaffLastName, string StaffSalary, string StaffGender, string DateAdded)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //if the StaffFirstName is blank
+            if(StaffFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "Staff First Name must not be left blank :";
+            }
+            //return any error message
+            return Error;
+        }
     }
 }

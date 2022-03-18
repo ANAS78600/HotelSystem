@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HotelClasses;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using HotelClasses;
 
 
 namespace HotelTesting

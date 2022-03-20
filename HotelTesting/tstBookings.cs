@@ -94,5 +94,176 @@ namespace HotelTesting
             Assert.AreEqual(ABooking.RoomID, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //make test data
+            Int32 BookingID = 1;
+            //invoke method
+            Found = ABooking.Find(BookingID);
+            //Test the result
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestBookingIDFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the ID
+            if (ABooking.BookingID !=1)
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustIDFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the ID
+            if (ABooking.CustID != 1)
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestNoOfGuestsFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the ID
+            if (ABooking.GuestNo != 3)
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestRoomIDFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the ID
+            if (ABooking.RoomID != 5)
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestBookingDateFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the property
+            if (ABooking.BookingDate != Convert.ToDateTime("01/02/2002"))
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustNameFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the property
+            if (ABooking.CustName != "John")
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a Boolean to store the results of the validation
+            Boolean Found = false;
+            //Boolean variable to store result of data if it is ok We are assuming it is)
+            Boolean OK = true;
+            //Making some data for the test
+            Int32 BookingID = 1;
+            //Invoke method
+            Found = ABooking.Find(BookingID);
+            //Check the property
+            if (ABooking.Active != true)
+            {
+                OK = false;
+            }
+            //test whether result is correct
+            Assert.IsTrue(OK);
+        }
+
     }
+
+
 }

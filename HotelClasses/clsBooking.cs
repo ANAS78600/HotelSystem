@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HotelClasses;
 
 namespace HotelClasses
 {
@@ -86,17 +87,17 @@ namespace HotelClasses
         }
 
         //Private member variable
-        private Int32 mRoomId;
+        private Int32 mRoomID;
         //Public member variable
         public int RoomID
         {
             get
             {
-                return mRoomId;
+                return mRoomID;
             }
             set
             {
-                mRoomId = value;
+                mRoomID = value;
             }
         }
 
@@ -115,17 +116,30 @@ namespace HotelClasses
             }
         }
 
-        public bool Find(int bookingID)
+        public bool Find(int BookingID)
         {
-            //set the private data set to test value
-            mBookingID = 1;
-            mCustID = 1;
-            mGuestNo = 3;
-            mRoomId = 5;
-            mBookingDate = Convert.ToDateTime("01/02/2002");
-            mCustName = "John";
-            mActive = true;
-            return true;
+            //Create instance of connection to DB
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter to search for
+            DB.AddParameter("@BookingID", BookingID);
+            DB.Execute("sproc_FilterByBookingID");
+            if (DB.Count == 1) 
+            {
+                //Copy data from DB to the private data members
+                mBookingID = Convert.ToInt32(DB.DataTable.Rows[0]["BookingID"]);
+                mCustName = Convert.ToString(DB.DataTable.Rows[0]["CustName"]);
+                mRoomID = Convert.ToInt32(DB.DataTable.Rows[0]["RoomID"]);
+                mGuestNo = Convert.ToInt32(DB.DataTable.Rows[0]["GuestNo"]);
+                mBookingDate = Convert.ToDateTime(DB.DataTable.Rows[0]["BookingDate"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mCustID = Convert.ToInt32(DB.DataTable.Rows[0]["CustID"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }

@@ -22,10 +22,37 @@ public partial class Booking : System.Web.UI.Page
     {
         clsBooking ABooking = new clsBooking();
 
-        ABooking.CustName = txtBookingId.Text;
+        ABooking.CustName = txtBookingID.Text;
 
         Session["ABooking"] = ABooking;
 
         Response.Redirect("BookingViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //Create instance of class
+        clsBooking ABooking = new clsBooking { };
+        //Primary key variable
+        Int32 BookingID;
+        //Variable to store result from operation
+        Boolean Found = false;
+        //get key entered by user
+        BookingID = Convert.ToInt32(txtBookingID.Text);
+        //find record
+        Found = ABooking.Find(BookingID);
+        if (Found == true)
+        {
+            //display values in the form
+            txtDate.Text = ABooking.BookingDate.ToString();
+            txtCustID.Text = ABooking.CustID.ToString();
+            txtName.Text = ABooking.CustName;
+            txtGuestNo.Text = ABooking.GuestNo.ToString();
+        }
+    }
+
+    protected void txtBookingId_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

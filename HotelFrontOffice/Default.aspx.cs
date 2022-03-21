@@ -4,11 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HotelClasses;
 
 public partial class _Default : System.Web.UI.Page
 {
+    Int32 SupplierNo;
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the supplier to be deleted from the session object
+        SupplierNo = Convert.ToInt32(Session["SupplierNo"]);
+        
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
@@ -33,5 +40,4 @@ public partial class _Default : System.Web.UI.Page
         lstSupplierFirstName.DataBind();
     }
 
-    
-}
+

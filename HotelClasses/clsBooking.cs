@@ -141,5 +141,10 @@ namespace HotelClasses
             }
             
         }
+
+        public string Valid(string custID, string custName, string bookingDate, string guestNo, string roomID)
+        {
+            return "";
+        }
     }
 }

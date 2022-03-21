@@ -7,6 +7,15 @@ namespace HotelTesting
     [TestClass]
     public class tstBookings
     {
+        //Good test data
+        
+        string CustID = "1";
+        string CustName = "John";
+        string BookingDate = DateTime.Now.Date.ToString();
+        string GuestNo = "4";
+        string RoomID = "3";
+        
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -167,7 +176,7 @@ namespace HotelTesting
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the ID
-            if (ABooking.GuestNo != 3)
+            if (ABooking.GuestNo != 4)
             {
                 OK = false;
             }
@@ -189,7 +198,7 @@ namespace HotelTesting
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the ID
-            if (ABooking.RoomID != 5)
+            if (ABooking.RoomID != 3)
             {
                 OK = false;
             }
@@ -263,6 +272,19 @@ namespace HotelTesting
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, BookingDate, GuestNo, RoomID);
+            
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
     }
 
 

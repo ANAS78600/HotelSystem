@@ -26,12 +26,15 @@
             <asp:Label ID="lblDate" runat="server" style="z-index: 1; left: 10px; top: 203px; position: absolute" Text="Date"></asp:Label>
             <asp:Label ID="lblCustID" runat="server" style="z-index: 1; left: 5px; top: 238px; position: absolute" Text="CustomerID"></asp:Label>
             <asp:TextBox ID="txtCustID" runat="server" style="z-index: 1; left: 138px; top: 239px; position: absolute"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </p>
         <p>
             <asp:Button ID="BtnOK" runat="server" OnClick="BtnOK_Click" style="z-index: 1; left: 107px; top: 499px; position: absolute" Text="Ok" />
             <asp:Label ID="lblBookingID" runat="server" style="z-index: 1; left: 18px; top: 371px; position: absolute" Text="Booking ID"></asp:Label>
-            <asp:TextBox ID="txtBookingId" runat="server" style="z-index: 1; left: 144px; top: 369px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtBookingID" runat="server" style="z-index: 1; left: 144px; top: 369px; position: absolute" OnTextChanged="txtBookingId_TextChanged"></asp:TextBox>
         </p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

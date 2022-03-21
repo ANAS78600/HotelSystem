@@ -22,6 +22,8 @@ public partial class _Default : System.Web.UI.Page
             //update the list box
             DisplaySupplierFirstName();
         }
+
+        
     }
 
     void DisplaySupplierFirstName()
@@ -36,58 +38,6 @@ public partial class _Default : System.Web.UI.Page
         lstSupplierFirstName.DataTextField = "SupplierFirstName";
         //bind the data to the input
         lstSupplierFirstName.DataBind();
-
     }
 
 
-    protected void btnAdd_Click(object sender, EventArgs e)
-    {
-        //store -1 into the session object to indicate this a new record
-        Session["SupplierNo"] = -1;
-        //redirect to the data entry page
-        Response.Redirect("AnSupplier.aspx");
-    }
-
-    protected void btnDelete_Click(object sender, EventArgs e)
-    {
-        //var to store the PK key value of the record to be deleted
-        Int32 SupplierNo;
-        //if a record has been selected from the list
-        if (lstSupplierFirstName.SelectedIndex != -1)
-        {
-            //get the pk key value of the record
-            SupplierNo = Convert.ToInt32(lstSupplierFirstName.SelectedValue);
-            //store the data in the session object
-            Session["SupplierNo"] = SupplierNo;
-            //redirect to the delete page
-            Response.Redirect("Delete.aspx");
-        }
-        else //if no record has been selected
-        {
-            //display error
-            IblError.Text = "Please select a record to be deleted from the list";
-        }
-    }
-
-    protected void btnEdit_Click(object sender, EventArgs e)
-    {
-        //var to store the PK key value of the record to be deleted
-        Int32 SupplierNo;
-        //if a record has been selected from the list
-        if (lstSupplierFirstName.SelectedIndex != -1)
-        {
-            //get the pk key value of the record
-            SupplierNo = Convert.ToInt32(lstSupplierFirstName.SelectedValue);
-            //store the data in the session object
-            Session["SupplierNo"] = SupplierNo;
-            //redirect to the delete page
-            Response.Redirect("AnSupplier.aspx");
-        }
-        else //if no record has been selected
-        {
-            //display error
-            IblError.Text = "Please select a record to be deleted from the list";
-        }
-    }
-
-}

@@ -9,6 +9,7 @@ namespace HotelClasses
         List<clsSupplier> mSupplierList = new List<clsSupplier>();
         //private data member thisSupplier
         clsSupplier mThisSupplier = new clsSupplier();
+        
      
         public List<clsSupplier> SupplierList
         {
@@ -34,7 +35,7 @@ namespace HotelClasses
             }
             set
             {
-                //later
+                //
             }
         }
 

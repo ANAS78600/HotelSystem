@@ -15,6 +15,8 @@ public partial class _Default : System.Web.UI.Page
             //update the list box
             DisplaySupplierFirstName();
         }
+
+        
     }
 
     void DisplaySupplierFirstName()
@@ -29,6 +31,7 @@ public partial class _Default : System.Web.UI.Page
         lstSupplierFirstName.DataTextField = "SupplierFirstName";
         //bind the data to the input
         lstSupplierFirstName.DataBind();
-
     }
+
+    
 }

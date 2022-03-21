@@ -93,5 +93,34 @@ namespace HotelTesting
             Assert.AreEqual(AllStaff.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties 
+            TestItem.Active = true;
+            TestItem.StaffNo = 23;
+            TestItem.StaffFirstName = "Megan";
+            TestItem.StaffLastName = "Philip";
+            TestItem.StaffSalary = 26000;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.StaffGender = "F";
+            //set ThisStaff to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add(); 
+            //set the primary key of the test data
+            TestItem.StaffNo = PrimaryKey;
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
     }
 }

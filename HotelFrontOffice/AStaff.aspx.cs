@@ -13,48 +13,13 @@ public partial class AStaff : System.Web.UI.Page
 
     }
 
+    //event handler for the ok button
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsStaff
-        clsStaff AStaff = new clsStaff();
-        //capture the StaffFirstName
-        string StaffFirstName = txtFirstName.Text;
-        //capture the StaffLastName
-        string StaffLastName = txtLastName.Text;
-        //capture the Salary
-        string StaffSalary = txtSalary.Text;
-        //capture the StaffDateAdded
-        string DateAdded = txtDateAdded.Text;
-        //capture the STaffGender
-        string StaffGender = txtGender.Text;
-        //variable to store any error messages
-        string Error = "";
-        //validate the data
-        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffSalary, StaffGender, DateAdded);
-        if(Error =="")
-            { 
-                //capture the StaffNo
-                AStaff.StaffNo = Convert.ToInt32(txtStaffNo.Text);
-                //capture the StaffFirstName
-                AStaff.StaffFirstName = txtFirstName.Text;
-                //capture the StaffLastName
-                AStaff.StaffLastName = txtLastName.Text;
-                //capture the Salary
-                AStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
-                //capture the StaffDateAdded
-                AStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-                //capture the STaffGender
-                AStaff.StaffGender = txtGender.Text;
-                //store the staff in the session object
-                Session["AStaff"] = AStaff;
-                //redirect to the viewer page
-                Response.Write("StaffViewer.aspx");
-            }
-        else
-            {
-            //display the error message
-            lblError.Text = Error;
-            }
+        //add the new record
+        Add();
+        //all done so redirect back to the main page
+        Response.Redirect("StaffDefault.aspx");
     }
 
 
@@ -79,6 +44,36 @@ public partial class AStaff : System.Web.UI.Page
             txtLastName.Text = AStaff.StaffLastName;
             txtSalary.Text = AStaff.StaffSalary.ToString();
             txtGender.Text = AStaff.StaffGender;
-}
+        }
+    }
+
+
+    //function for adding new records
+    void Add()
+    {
+        //create an instance of the staff book
+        clsStaffCollection StaffBook = new clsStaffCollection();
+        //validate the data on the web form
+        string Error = StaffBook.ThisStaff.Valid(txtFirstName.Text, txtLastName.Text, txtSalary.Text, txtGender.Text, txtDateAdded.Text);
+        //if the data id OK then add it to the object
+        if (Error == "")
+        {
+            //get the data entered by the user
+            StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
+            StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
+            StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+            StaffBook.ThisStaff.StaffGender = txtGender.Text;
+            StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            StaffBook.ThisStaff.Active = chkActive.Checked;
+            //add the record
+            StaffBook.Add();
+            //all done so redirect back to the main page
+            Response.Redirect("StaffDefault.aspx");
+        }
+        else
+        {
+            //report an error
+            lblError.Text = "There wasproblems with the data entered" + Error;
+        }
     }
 }

@@ -33,6 +33,9 @@ public partial class StaffDefault : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-
+        //store -1 into the session object to indicate this ia a new record
+        Session["StaffNi"] = -1;
+        //redirect to the data entry page
+        Response.Redirect("AStaff.aspx");
     }
 }

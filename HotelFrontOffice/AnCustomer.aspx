@@ -13,7 +13,7 @@
         <p>
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 129px; top: 369px; position: absolute; height: 33px; width: 88px" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 55px; top: 365px; position: absolute; height: 36px; width: 49px" Text="OK" OnClick="btnOK_Click" />
-        <asp:Label ID="IblError" runat="server" style="z-index: 1; left: 61px; top: 329px; position: absolute" Text="[IblError]"></asp:Label>
+        <asp:Label ID="IblError" runat="server" style="z-index: 1; left: 61px; top: 329px; position: absolute" Text="[lblError]"></asp:Label>
         <asp:Label ID="lblCustomerID" runat="server" style="z-index: 1; left: 65px; top: 90px; position: absolute" Text="CustomerID"></asp:Label>
         <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 63px; top: 121px; position: absolute; width: 78px;" Text="First Name"></asp:Label>
         <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 62px; top: 147px; position: absolute" Text="Last Name"></asp:Label>

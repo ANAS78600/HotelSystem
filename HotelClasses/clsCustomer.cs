@@ -23,6 +23,7 @@ namespace HotelClasses
         public string LastName;
         public string Tel;
         public string Address;
+
         class ClsCustomer
         {
             public ClsCustomer()
@@ -152,6 +153,93 @@ namespace HotelClasses
                 //return false indication a problem
                 return false;
             }
+        }
+
+        public string Valid(string FirstName, string LastName, string Tel, string Address, string DateAdded)
+        {
+            //create a string varaible to store the error
+            string Error = "";
+            //create a temporary variable to store the data value
+            DateTime DateTemp;
+
+            //if the FirstName is Blank
+            if (FirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The First Name may not be blank : ";
+            }
+            //if the First name is higher than 15 character
+            if (FirstName.Length > 15)
+            {
+                //record the error
+                Error = Error + "The First Name must be less than 15 Characters : ";
+            }
+
+            //if the LastName is Blank
+            if (LastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Last Name may not be blank : ";
+            }
+            //if the First name is higher than 15 character
+            if (LastName.Length > 15)
+            {
+                //record the error
+                Error = Error + "The Last Name must be less than 15 Characters : ";
+            }
+
+            //if the Supplier Tel is Blank
+            if (Tel.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Tel may not be blank : ";
+            }
+            //if the First name is higher than 15 character
+            if (Tel.Length > 12)
+            {
+                //record the error
+                Error = Error + "The Tel must be less than 12 Digits : ";
+            }
+
+            //if the Address is blank
+            if (Address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Address may not be blank : ";
+            }
+            //if the First name is higher than 15 character
+            if (Address.Length > 30)
+            {
+                //record the error
+                Error = Error + "The Address must be less than 30 Characters : ";
+            }
+
+            try
+            {
+                //copy the dateadded value to the datetemp variable
+                DateTemp = Convert.ToDateTime(DateAdded);
+
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+
+                }
+                //check to see if the data is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the Future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //return any error message
+            return Error;
         }
     }
 }

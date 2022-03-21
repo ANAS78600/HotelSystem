@@ -101,5 +101,10 @@ namespace HotelClasses
             //execute the query returning th primary key value
             return DB.Execute("sproc_tblStaff_Insert");
         }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -95,5 +95,163 @@ namespace HotelTesting
             Assert.AreEqual(AllSupplier.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            //create an instance of the data we want to make
+            clsSupplierCollection AllSupplier = new clsSupplierCollection();
+            //create the item of test data
+            clsSupplier TestItem = new clsSupplier();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Active = true;
+            TestItem.SupplierNo = 23;
+            TestItem.SupplierFirstName = "AAANAS";
+            TestItem.SupplierLastName = "SHAIKH";
+            TestItem.SupplierTel = "07989786761";
+            TestItem.SupplierAddress = "72 Dale Road";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set ThisSupplier to the test data
+            AllSupplier.ThisSupplier = TestItem;
+            //add the key
+            PrimaryKey = AllSupplier.Add();
+            //set the primary key of the test data
+            TestItem.SupplierNo = PrimaryKey;
+            //find the record
+            AllSupplier.ThisSupplier.Find(PrimaryKey);
+            //test to see that the 2 values are the same
+            Assert.AreEqual(AllSupplier.ThisSupplier, TestItem);
+
+        }
+
+        [TestMethod]
+        public void DeleteMethodOk()
+        {
+            //create an instance of the data we want to make
+            clsSupplierCollection AllSupplier = new clsSupplierCollection();
+            //create the item of test data
+            clsSupplier TestItem = new clsSupplier();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Active = true;
+            TestItem.SupplierNo = 23;
+            TestItem.SupplierFirstName = "AAANAS";
+            TestItem.SupplierLastName = "SHAIKH";
+            TestItem.SupplierTel = "07989786761";
+            TestItem.SupplierAddress = "72 Dale Road";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set ThisSupplier to the test data
+            AllSupplier.ThisSupplier = TestItem;
+            //add the key
+            PrimaryKey = AllSupplier.Add();
+            //set the primary key of the test data
+            TestItem.SupplierNo = PrimaryKey;
+            //find the record
+            AllSupplier.ThisSupplier.Find(PrimaryKey);
+            //delete the record 
+            AllSupplier.Delete();
+            //now find the record
+            Boolean Found = AllSupplier.ThisSupplier.Find(PrimaryKey);
+            //test to see that the 2 values are the same
+            Assert.IsFalse(Found);
+
+        }
+
+        [TestMethod]
+        public void UpdateMethodOk()
+        {
+            //create an instance of the data we want to make
+            clsSupplierCollection AllSupplier = new clsSupplierCollection();
+            //create the item of test data
+            clsSupplier TestItem = new clsSupplier();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties
+            TestItem.Active = true;
+            TestItem.SupplierFirstName = "AAANAS";
+            TestItem.SupplierLastName = "SHAIKH";
+            TestItem.SupplierTel = "07989786761";
+            TestItem.SupplierAddress = "72 Dale Road";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set ThisSupplier to the test data
+            AllSupplier.ThisSupplier = TestItem;
+            //add the key
+            PrimaryKey = AllSupplier.Add();
+            //set the primary key of the test data
+            TestItem.SupplierNo = PrimaryKey;
+            //modify the test data
+            TestItem.Active = false;
+            TestItem.SupplierFirstName = "Lucy";
+            TestItem.SupplierLastName = "Lane";
+            TestItem.SupplierTel = "07912227880";
+            TestItem.SupplierAddress = "13 London Street";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set the record based of the new test data
+            AllSupplier.ThisSupplier = TestItem;
+            //update the record
+            AllSupplier.Update();
+            //find the record
+            AllSupplier.ThisSupplier.Find(PrimaryKey);
+            //test to see that the 2 values are the same
+            Assert.AreEqual(AllSupplier.ThisSupplier, TestItem);
+        }
+
+        [TestMethod]
+        public void ReportBySupplierFirstNameMethodOk()
+        {
+            //create an instance of the class contaning unfiltered results
+            clsSupplierCollection AllSupplier = new clsSupplierCollection();
+            //create an instance of the filteres data
+            clsSupplierCollection FilteredSupplier = new clsSupplierCollection();
+            //apply a blank string (should return all records)
+            FilteredSupplier.ReportBySupplierFirstName("");
+            //test to see that the 2 values r the same
+            Assert.AreEqual(AllSupplier.Count, FilteredSupplier.Count);
+        }
+
+        [TestMethod]
+        public void ReportBySupplierFirstNameNoneFound()
+        {
+            //create an instance of the filtered data
+            clsSupplierCollection FilteredSupplier = new clsSupplierCollection();
+            //apply a first name that doesnt excist 
+            FilteredSupplier.ReportBySupplierFirstName("Pogba");
+            //test to see that there are no record
+            Assert.AreEqual(0, FilteredSupplier.Count);
+        }
+
+        [TestMethod]
+        public void ReportBySupplierFirstNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsSupplierCollection FilteredSupplier = new clsSupplierCollection();
+            //var to store outcome
+            Boolean Ok = true;
+            //apply a first name that doesnt exists'
+            FilteredSupplier.ReportBySupplierFirstName("Pogba");
+            //check that the correct number of record are found
+            if (FilteredSupplier.Count == 2)
+            {
+                //check that the first record is ID
+                if (FilteredSupplier.SupplierList[0].SupplierNo != 66)
+                {
+                    Ok = false;
+                }
+                //check that the first record is ID 
+                if (FilteredSupplier.SupplierList[1].SupplierNo != 67)
+                {
+                    Ok = false;
+                }
+            }
+            else
+            {
+                Ok = false;
+            }
+            //test to see that there are no record
+            Assert.IsTrue(Ok);
+        }
+
     }
 }

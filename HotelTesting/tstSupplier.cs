@@ -15,7 +15,7 @@ namespace HotelTesting
         string SupplierAddress = "7 Lane street";
         string SupplierFirstName = "James";
         string SupplierLastName = "Lee";
-        string SupplierTel = "07987675280";
+        string SupplierTel = "07987675288";
         string DateAdded = DateTime.Now.Date.ToString();
 
 

@@ -21,10 +21,9 @@ public partial class AnCustomer : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsSupplier
         clsCustomer AnCustomer = new clsCustomer();
-        //capture the supplier No
-        AnCustomer.FirstName = txtFirstName.Text;
+        //Capture the custoemr ID
+        AnCustomer.FirstName = txtCustomerID.Text;
         //store the supplier in the session object
         Session["AnCustomer"] = AnCustomer;
         //redirect to the viewer page

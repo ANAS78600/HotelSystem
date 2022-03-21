@@ -94,8 +94,5 @@ namespace HotelTesting
             //test to see that the 2 values r the same
             Assert.AreEqual(AllSupplier.Count, TestList.Count);
         }
-
-
-        
     }
 }

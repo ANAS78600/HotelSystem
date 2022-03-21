@@ -155,7 +155,7 @@ namespace HotelClasses
             }
         }
 
-        public string Valid(string FirstName, string LastName, string Tel, string Address, string DateAdded)
+        public string Valid(string FirstName, string LastName, string Tel, string Address, string DateAdded, string dateAdded)
         {
             //create a string varaible to store the error
             string Error = "";

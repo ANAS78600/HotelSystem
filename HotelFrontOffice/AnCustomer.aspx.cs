@@ -8,6 +8,7 @@ using HotelClasses;
 
 public partial class AnCustomer : System.Web.UI.Page
 {
+    public object lblError;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,13 +22,46 @@ public partial class AnCustomer : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
-        //Capture the custoemr ID
-        AnCustomer.FirstName = txtCustomerID.Text;
-        //store the supplier in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //redirect to the viewer page
-        Response.Redirect("CustomerViewer.aspx");
+        //Capture the customer ID
+        string CustomerID = txtCustomerID.Text;
+        //Capture the First Name
+        string FirstName = txtFirstName.Text;
+        //Capture the last name 
+        string LastName = txtLastName.Text;
+        //Capture the address
+        string Address = txtAddress.Text;
+        //Capture the Tel
+        string Tel = txtTel.Text;
+        //Capture The dateadded
+        string DateAdded = txtDateAdded.Text;
+        //variable to store any error messages
+        string Error = "";
+        //Validate the data
+        Error = AnCustomer.Valid(CustomerID, FirstName, LastName, Tel, Address, DateAdded);
+        if (Error == "")
+        {
+            //capture the firstname
+            AnCustomer.FirstName = FirstName;
+            //capture the lastname
+            AnCustomer.LastName = LastName;
+            //capture the address
+            AnCustomer.Address = Address;
+            //capture the Tel
+            AnCustomer.Tel = Tel;
+            //capture the date added
+            AnCustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            //store the address in the session object
+            Session["AnCustomer"] = AnCustomer;
+            //Redirect to the viewers page
+            Response.Write("CustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            IblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

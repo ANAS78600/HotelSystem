@@ -57,17 +57,17 @@ namespace HotelClasses
         }
 
         //private member variable
-        private DateTime mBookingDate;
+        private string mDaysNo;
         //publim member variable
-        public DateTime BookingDate
+        public string DaysNo
         {
             get
             {
-                return mBookingDate;
+                return mDaysNo;
             }
             set
             {
-                mBookingDate = value;
+                mDaysNo = value;
             }
         }
 
@@ -130,7 +130,7 @@ namespace HotelClasses
                 mCustName = Convert.ToString(DB.DataTable.Rows[0]["CustName"]);
                 mRoomID = Convert.ToInt32(DB.DataTable.Rows[0]["RoomID"]);
                 mGuestNo = Convert.ToInt32(DB.DataTable.Rows[0]["GuestNo"]);
-                mBookingDate = Convert.ToDateTime(DB.DataTable.Rows[0]["BookingDate"]);
+                mDaysNo = Convert.ToString(DB.DataTable.Rows[0]["DaysNo"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 mCustID = Convert.ToInt32(DB.DataTable.Rows[0]["CustID"]);
                 return true;
@@ -142,7 +142,7 @@ namespace HotelClasses
             
         }
 
-        public string Valid(string CustID, string CustName, string BookingDate, string GuestNo, string RoomID)
+        public string Valid(string CustID, string CustName, string DaysNo, string GuestNo, string RoomID)
         {
             string Error = "";
             //If field is blank
@@ -156,6 +156,43 @@ namespace HotelClasses
             {
                 Error = Error + "The name field may not contain more than 50 characters : ";
             }
+
+            //If duration of stay is blank
+            if (DaysNo.Length ==0)
+            {
+                Error = Error + "The booking cannot be for 0 days : ";
+            }
+
+            //if duration is longer than 7 days or an invalid character
+           if (DaysNo != "1")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+            else if (DaysNo != "2")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+            else if (DaysNo != "3")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+            else if (DaysNo != "4")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+            else if (DaysNo != "5")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+            else if (DaysNo != "6")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+            else if (DaysNo != "7")
+            {
+                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            }
+           
             return Error;
         }
     }

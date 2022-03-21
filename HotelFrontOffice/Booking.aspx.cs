@@ -22,11 +22,26 @@ public partial class Booking : System.Web.UI.Page
     {
         clsBooking ABooking = new clsBooking();
 
-        ABooking.CustName = txtBookingID.Text;
-
-        Session["ABooking"] = ABooking;
-
-        Response.Redirect("BookingViewer.aspx");
+        string DaysNo = txtDaysNo.Text;
+        string CustName = txtCustName.Text;
+        string GuestNo = txtGuestNo.Text;
+        string CustID = txtCustID.Text;
+        string RoomID = txtRoomID.Text;
+        string Error = "";
+        Error = ABooking.Valid(CustID, DaysNo, CustName, GuestNo, RoomID);
+        if (Error =="")
+        {
+            ABooking.DaysNo = DaysNo;
+            ABooking.CustName = CustName;
+            //ABooking.GuestNo = GuestNo;
+            //ABooking.CustID = CustID;
+            Session["ABooking"] = ABooking;
+            Response.Write("BookingViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -44,14 +59,19 @@ public partial class Booking : System.Web.UI.Page
         if (Found == true)
         {
             //display values in the form
-            txtDate.Text = ABooking.BookingDate.ToString();
+            txtDaysNo.Text = ABooking.DaysNo.ToString();
             txtCustID.Text = ABooking.CustID.ToString();
-            txtName.Text = ABooking.CustName;
+            txtCustName.Text = ABooking.CustName;
             txtGuestNo.Text = ABooking.GuestNo.ToString();
         }
     }
 
     protected void txtBookingId_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtDaysNo_TextChanged(object sender, EventArgs e)
     {
 
     }

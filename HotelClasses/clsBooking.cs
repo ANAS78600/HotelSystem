@@ -142,9 +142,21 @@ namespace HotelClasses
             
         }
 
-        public string Valid(string custID, string custName, string bookingDate, string guestNo, string roomID)
+        public string Valid(string CustID, string CustName, string BookingDate, string GuestNo, string RoomID)
         {
-            return "";
+            string Error = "";
+            //If field is blank
+            if (CustName.Length ==0)
+            {
+                Error = Error + "The naming field may not be blank : ";
+            }
+
+            //If name exceeds character limit
+            if (CustName.Length >50)
+            {
+                Error = Error + "The name field may not contain more than 50 characters : ";
+            }
+            return Error;
         }
     }
 }

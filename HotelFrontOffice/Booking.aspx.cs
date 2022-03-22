@@ -33,8 +33,9 @@ public partial class Booking : System.Web.UI.Page
         {
             ABooking.DaysNo = DaysNo;
             ABooking.CustName = CustName;
-            //ABooking.GuestNo = GuestNo;
-            //ABooking.CustID = CustID;
+            ABooking.RoomID = Convert.ToInt32(RoomID);
+            ABooking.GuestNo = Convert.ToInt32(GuestNo);
+            ABooking.CustID = Convert.ToInt32(CustID);
             Session["ABooking"] = ABooking;
             Response.Write("BookingViewer.aspx");
         }

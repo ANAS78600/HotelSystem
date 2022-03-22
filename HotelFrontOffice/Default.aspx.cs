@@ -15,7 +15,7 @@ public partial class _Default : System.Web.UI.Page
     {
         //get the number of the supplier to be deleted from the session object
         SupplierNo = Convert.ToInt32(Session["SupplierNo"]);
-        
+
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
@@ -23,7 +23,7 @@ public partial class _Default : System.Web.UI.Page
             DisplaySupplierFirstName();
         }
 
-        
+
     }
 
     void DisplaySupplierFirstName()
@@ -41,3 +41,9 @@ public partial class _Default : System.Web.UI.Page
     }
 
 
+
+    protected void lstSupplierFirstName_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+}

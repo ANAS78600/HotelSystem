@@ -157,41 +157,59 @@ namespace HotelClasses
                 Error = Error + "The name field may not contain more than 50 characters : ";
             }
 
-            //If duration of stay is blank
-            if (DaysNo.Length ==0)
+            try
             {
-                Error = Error + "The booking cannot be for 0 days : ";
+                Int32 DayNoTemp = Convert.ToInt32(DaysNo);
+                if (DayNoTemp < 1 | DayNoTemp > 7)
+                {
+                    Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+                }
             }
 
-            //if duration is longer than 7 days or an invalid character
-           if (DaysNo != "1")
+            catch
             {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+                Error = Error + "the No of Days is not a valid number : ";
             }
-            else if (DaysNo != "2")
-            {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-            }
-            else if (DaysNo != "3")
-            {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-            }
-            else if (DaysNo != "4")
-            {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-            }
-            else if (DaysNo != "5")
-            {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-            }
-            else if (DaysNo != "6")
-            {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-            }
-            else if (DaysNo != "7")
-            {
-                Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-            }
+
+
+
+
+
+           // //If duration of stay is blank
+           // if (DaysNo.Length ==0)
+           // {
+           //     Error = Error + "The booking cannot be for 0 days : ";
+           // }
+
+           // //if duration is longer than 7 days or an invalid character
+           //if (DaysNo != "1")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
+           // else if (DaysNo != "2")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
+           // else if (DaysNo != "3")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
+           // else if (DaysNo != "4")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
+           // else if (DaysNo != "5")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
+           // else if (DaysNo != "6")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
+           // else if (DaysNo != "7")
+           // {
+           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+           // }
            
             return Error;
         }

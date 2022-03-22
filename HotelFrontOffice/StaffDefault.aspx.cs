@@ -34,8 +34,38 @@ public partial class StaffDefault : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate this ia a new record
-        Session["StaffNi"] = -1;
+        Session["StaffNo"] = -1;
         //redirect to the data entry page
         Response.Redirect("AStaff.aspx");
     }
+
+    //event handler for the delete button
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the promary key value of the record to be deleted
+        Int32 StaffNo;
+        //if a record has been selected from the list
+        if (lstStaffFirstName.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to delete
+            StaffNo = Convert.ToInt32(lstStaffFirstName.SelectedValue);
+            //store the data in session object
+            Session["StaffNo"] = StaffNo;
+            //redirect to the delete page
+            Response.Redirect("StaffDefault.aspx");
+        }
+        //if no record has been selected
+        else
+        {
+            //display an error
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+        
+    }
+
+    
 }

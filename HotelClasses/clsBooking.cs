@@ -168,49 +168,74 @@ namespace HotelClasses
 
             catch
             {
-                Error = Error + "the No of Days is not a valid number : ";
+                Error = Error + "The No of Days is not a valid number : ";
+            }
+
+
+            try
+            {
+                Int32 GuestNoTemp = Convert.ToInt32(GuestNo);
+                if (GuestNoTemp < 1 | GuestNoTemp> 6)
+                {
+                    Error = Error + "Maximum occupancy may not exceed 6 guests : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "Please enter as a valid number character : ";
+            }
+
+            try
+            {
+                Int32 RoomIDTemp = Convert.ToInt32(RoomID);
+                if (RoomIDTemp< 1 | RoomIDTemp> 20)
+                {
+                    Error = Error + "Please select you room number from the 20 available : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "Please choose a room between 1 and 20 : ";
             }
 
 
 
+            // //If duration of stay is blank
+            // if (DaysNo.Length ==0)
+            // {
+            //     Error = Error + "The booking cannot be for 0 days : ";
+            // }
 
+            // //if duration is longer than 7 days or an invalid character
+            //if (DaysNo != "1")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
+            // else if (DaysNo != "2")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
+            // else if (DaysNo != "3")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
+            // else if (DaysNo != "4")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
+            // else if (DaysNo != "5")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
+            // else if (DaysNo != "6")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
+            // else if (DaysNo != "7")
+            // {
+            //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
+            // }
 
-           // //If duration of stay is blank
-           // if (DaysNo.Length ==0)
-           // {
-           //     Error = Error + "The booking cannot be for 0 days : ";
-           // }
-
-           // //if duration is longer than 7 days or an invalid character
-           //if (DaysNo != "1")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           // else if (DaysNo != "2")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           // else if (DaysNo != "3")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           // else if (DaysNo != "4")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           // else if (DaysNo != "5")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           // else if (DaysNo != "6")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           // else if (DaysNo != "7")
-           // {
-           //     Error = Error + "Duration of stay cannot be longer than a week (Seven days) : ";
-           // }
-           
             return Error;
         }
     }

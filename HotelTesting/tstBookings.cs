@@ -315,7 +315,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -331,7 +331,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -348,7 +348,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -365,7 +365,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -382,7 +382,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -448,7 +448,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -464,7 +464,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -480,7 +480,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -496,7 +496,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]

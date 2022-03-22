@@ -10,7 +10,7 @@ namespace HotelClasses
     public class clsBookingCollection
     {
         //Private member list
-        List<clsBooking> mBookingList;
+        List<clsBooking> mBookingList = new List<clsBooking>();
         //public member list
         public List<clsBooking> BookingList
         {
@@ -24,7 +24,7 @@ namespace HotelClasses
             }
         }
         //private member variable
-        clsBooking mThisBooking;
+        clsBooking mThisBooking = new clsBooking();
         //public member class
         public clsBooking ThisBooking
         {
@@ -50,6 +50,21 @@ namespace HotelClasses
                 //Worry later says Matt lol
             }
 
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on values of ThisBooking
+            //Connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //Set parameters for the stored procedure
+            DB.AddParameter("@CustID", mThisBooking.CustID);
+            DB.AddParameter("@CustName", mThisBooking.CustName);
+            DB.AddParameter("@DaysNo", mThisBooking.DaysNo);
+            DB.AddParameter("@GuestNo", mThisBooking.GuestNo);
+            DB.AddParameter("@RoomID", mThisBooking.RoomID);
+            DB.AddParameter("@Active", mThisBooking.Active);
+            return DB.Execute("sproc_tblBooking_Insert");
         }
 
         public clsBookingCollection()

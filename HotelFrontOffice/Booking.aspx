@@ -37,14 +37,6 @@
             <asp:Label ID="lblBookingID" runat="server" style="z-index: 1; left: 18px; top: 371px; position: absolute; height: 19px;" Text="Booking ID"></asp:Label>
             <asp:TextBox ID="txtBookingID" runat="server" style="z-index: 1; left: 180px; top: 373px; position: absolute" OnTextChanged="txtBookingId_TextChanged"></asp:TextBox>
         </p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
     </form>
 </body>
 </html>

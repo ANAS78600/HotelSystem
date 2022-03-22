@@ -76,4 +76,9 @@ public partial class AStaff : System.Web.UI.Page
             lblError.Text = "There wasproblems with the data entered" + Error;
         }
     }
+
+    protected void btnOK_Click1(object sender, EventArgs e)
+    {
+
+    }
 }

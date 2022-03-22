@@ -88,6 +88,26 @@ namespace HotelTesting
             Assert.AreEqual(AllBookings.Count, TestList.Count);
         }
 
-        
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsBookingCollection AllBookings = new clsBookingCollection();
+            clsBooking TestItem = new clsBooking();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.BookingID = 1;
+            TestItem.CustID = 1;
+            TestItem.CustName = "John";
+            TestItem.DaysNo = "3";
+            TestItem.GuestNo = 4;
+            TestItem.RoomID = 3;
+            AllBookings.ThisBooking = TestItem;
+            PrimaryKey = AllBookings.Add();
+            TestItem.BookingID = PrimaryKey;
+            AllBookings.ThisBooking.Find(PrimaryKey);
+            Assert.AreEqual(AllBookings.ThisBooking, TestItem);
+        }
+
+
     }
 }

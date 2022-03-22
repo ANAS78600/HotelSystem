@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using HotelClasses;
 
 namespace HotelClasses
 {
@@ -91,7 +92,7 @@ namespace HotelClasses
             //Connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameter
-            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            //DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
             DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
             DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
             DB.AddParameter("@StaffSalary", mThisStaff.StaffSalary);
@@ -104,7 +105,13 @@ namespace HotelClasses
 
         public void Delete()
         {
-            throw new NotImplementedException();
+            //deletes the record pointed to by thisstaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedures
+            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
         }
     }
 }

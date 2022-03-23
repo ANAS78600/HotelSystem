@@ -10,7 +10,6 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 80px; top: 407px; position: absolute; right: 1036px" Text="Apply" Width="94px" />
         <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 199px; top: 406px; position: absolute" Text="Display All" OnClick="btnDisplayAll_Click" />
         <asp:ListBox ID="lstStaffFirstName" runat="server" style="z-index: 1; left: 79px; top: 93px; position: absolute; height: 192px; width: 227px"></asp:ListBox>
         <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 160px; top: 489px; position: absolute; right: 995px" Text="Edit" Width="55px" OnClick="btnEdit_Click" />
@@ -21,6 +20,7 @@
         <p>
             <asp:Label ID="lblEnterFirstName" runat="server" style="z-index: 1; left: 105px; top: 317px; position: absolute" Text="Please Enter First Name"></asp:Label>
         </p>
+        <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 95px; top: 405px; position: absolute" Text="Apply" Width="94px" />
     </form>
 </body>
 </html>

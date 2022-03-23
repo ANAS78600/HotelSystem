@@ -14,7 +14,7 @@
         <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 194px; top: 107px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtStaffNo" runat="server" style="z-index: 1; left: 194px; top: 63px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 192px; top: 253px; position: absolute"></asp:TextBox>
-        <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 194px; top: 145px; position: absolute; bottom: 293px;"></asp:TextBox>
+        <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 194px; top: 145px; position: absolute; bottom: 449px;" Height="20px"></asp:TextBox>
         <asp:Label ID="lblStaffNo" runat="server" style="z-index: 1; left: 63px; top: 64px; position: absolute; width: 134px" Text="Staff No"></asp:Label>
         <asp:Label ID="lblFirstname" runat="server" style="z-index: 1; left: 63px; top: 108px; position: absolute; width: 135px" Text="First Name"></asp:Label>
         <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 64px; top: 258px; position: absolute" Text="Date Added"></asp:Label>
@@ -23,9 +23,9 @@
         <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 63px; top: 147px; position: absolute; width: 115px" Text="Last Name"></asp:Label>
         <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 67px; top: 317px; position: absolute" Text="Active" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 66px; top: 362px; position: absolute" Text="[lblError]"></asp:Label>
-        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 68px; top: 408px; position: absolute; width: 64px; right: 1173px" Text="OK" OnClick="btnOK_Click1" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 156px; top: 408px; position: absolute; width: 64px" Text="Cancel" />
-        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 340px; top: 61px; position: absolute; width: 64px" Text="Find" />
+        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 68px; top: 408px; position: absolute; width: 64px; right: 1173px" Text="OK" OnClick="btnOK_Click1"  />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 156px; top: 408px; position: absolute; width: 64px" Text="Cancel" OnClick="btnCancel_Click" />
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 476px; top: 61px; position: absolute; width: 64px" Text="Find" />
         <p>
             &nbsp;</p>
         <asp:TextBox ID="txtGender" runat="server" style="z-index: 1; left: 192px; top: 223px; position: absolute"></asp:TextBox>

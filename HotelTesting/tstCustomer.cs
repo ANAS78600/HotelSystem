@@ -839,7 +839,7 @@ namespace HotelTesting
             //set the dat totodays date
             TestDate = DateTime.Now.Date;
             //change the date to whatever the date is plus 100 years
-      
+
             //convert the data varible to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method

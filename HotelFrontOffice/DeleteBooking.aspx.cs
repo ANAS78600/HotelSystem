@@ -20,10 +20,15 @@ public partial class DeleteBooking : System.Web.UI.Page
         Response.Redirect("BookingHome.aspx");
     }
 
-    protected void DeleteBookings()
+    private void DeleteBookings()
     {
         clsBookingCollection BookingRecords = new clsBookingCollection();
         BookingRecords.ThisBooking.Find(BookingID);
         BookingRecords.Delete();
+    }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Booking.aspx");
     }
 }

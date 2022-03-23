@@ -14,7 +14,7 @@ public partial class Booking : System.Web.UI.Page
         BookingID = Convert.ToInt32(Session["BookingID"]);
         if (IsPostBack == false)
         {
-            DisplayBookings();
+       
             if(BookingID != -1)
             {
                 DisplayBookings();
@@ -119,11 +119,13 @@ public partial class Booking : System.Web.UI.Page
         if (Error == "")
         {
             BookingRecord.ThisBooking.Find(BookingID);
+
             BookingRecord.ThisBooking.CustID = Convert.ToInt32(txtCustID.Text);
             BookingRecord.ThisBooking.CustName = txtCustName.Text;
             BookingRecord.ThisBooking.DaysNo = txtDaysNo.Text;
             BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo.Text);
             BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID.Text);
+            BookingRecord.ThisBooking.Active = Convert.ToBoolean(chkOK.Checked);
             BookingRecord.Update();
             Response.Redirect("BookingHome.aspx");
         }

@@ -23,8 +23,8 @@ public partial class BookingHome : System.Web.UI.Page
         clsBookingCollection Bookings = new clsBookingCollection();
         lstBooking.DataSource = Bookings.BookingList;
         lstBooking.DataValueField = "BookingID";
-        lstBooking.DataValueField = "CustID";
-        lstBooking.DataValueField = "CustName";
+
+        lstBooking.DataTextField = "CustName";
         lstBooking.DataBind();
     }
 

@@ -16,7 +16,7 @@
             <asp:Label ID="Label1" runat="server" Text="Are you sure you want to delete this booking?"></asp:Label>
         </p>
         <asp:Button ID="BtnYes" runat="server" OnClick="BtnYes_Click" Text="Yes" />
-        <asp:Button ID="btnNo" runat="server" Text="No" />
+        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
     </form>
 </body>
 </html>

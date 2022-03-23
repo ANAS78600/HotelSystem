@@ -4,11 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HotelClasses;
 
 public partial class StaffDefault : System.Web.UI.Page
 {
+    public int StaffNo { get; private set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the address to be processed
+        StaffNo = Convert.ToInt32(Session["StaffNo"]);
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
@@ -67,5 +72,29 @@ public partial class StaffDefault : System.Web.UI.Page
         
     }
 
-    
+
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value for the record to be edited
+        Int32 StaffNo;
+        //if a record has been selected from the list
+        if (lstStaffFirstName.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to edit
+            StaffNo = Convert.ToInt32(lstStaffFirstName.SelectedValue);
+            //store the data in the session object
+            Session["StaffNo"] = StaffNo;
+            //redirect to the edit page
+            Response.Redirect("AStaff.aspx");
+        }
+        //if no record has been selected
+        else
+        {
+            //display error message
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+
+
 }

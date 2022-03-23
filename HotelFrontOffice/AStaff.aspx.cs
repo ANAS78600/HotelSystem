@@ -8,18 +8,40 @@ using HotelClasses;
 
 public partial class AStaff : System.Web.UI.Page
 {
+    Int32 StaffNo;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        // get the number of the staff to be processed
+        StaffNo = Convert.ToInt32(Session["StaffNo"]);
+        if (IsPostBack == false)
+        {
+            //populate the list of staff
+            DisplayStaff();
+            //if this is not a new record
+            if (StaffNo != -1)
+            {
+                //display the current data for the record
+                DisplayStaff();
+            }
 
+        }
     }
 
     //event handler for the ok button
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //add the new record
-        Add();
-        //all done so redirect back to the main page
-        Response.Redirect("StaffDefault.aspx");
+        if (StaffNo == -1)
+        {
+            //Add new record
+            Add();
+        }
+        else
+        {
+            //update the record
+            Update();
+        }
+        
     }
 
 
@@ -73,12 +95,56 @@ public partial class AStaff : System.Web.UI.Page
         else
         {
             //report an error
+            lblError.Text = "There was problems with the data entered" + Error;
+        }
+    }
+
+    //function for updating records
+    void Update()
+    {
+        // create an instance of the staff book
+        HotelClasses.clsStaffCollection StaffBook = new HotelClasses.clsStaffCollection();
+        //validate the data on the web form
+        string Error = StaffBook.ThisStaff.Valid(txtFirstName.Text, txtLastName.Text, txtSalary.Text, txtGender.Text, txtDateAdded.Text);
+        //if the data id OK then add it to the object
+        if (Error == "")
+        {
+            //find the record to update
+            StaffBook.ThisStaff.Find(StaffNo);
+            //get the data entered by the user
+            StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
+            StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
+            StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+            StaffBook.ThisStaff.StaffGender = txtGender.Text;
+            StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            StaffBook.ThisStaff.Active = chkActive.Checked;
+            //update the record
+            StaffBook.Update();
+            //all done so redirect back to the main page
+            Response.Redirect("StaffDefault.aspx");
+        }
+        else
+        {
+            //report an error
             lblError.Text = "There wasproblems with the data entered" + Error;
         }
     }
 
-    protected void btnOK_Click1(object sender, EventArgs e)
+    void DisplayStaff()
     {
+        //create an instance of the staff book
+        clsStaffCollection StaffBook = new clsStaffCollection();
+        //find the record to update 
+        StaffBook.ThisStaff.Find(StaffNo);
+        //display this data for this record
+        txtFirstName.Text = StaffBook.ThisStaff.StaffFirstName;
+        txtLastName.Text = StaffBook.ThisStaff.StaffLastName;
+        txtSalary.Text = StaffBook.ThisStaff.StaffSalary. ToString();
+        txtGender.Text = StaffBook.ThisStaff.StaffGender;
+        txtDateAdded.Text = StaffBook.ThisStaff.DateAdded.ToString();
+        chkActive.Checked = StaffBook.ThisStaff.Active;
 
     }
+
+
 }

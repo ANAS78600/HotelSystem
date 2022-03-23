@@ -155,5 +155,101 @@ namespace HotelTesting
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key 
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.StaffNo = 7;
+            TestItem.StaffFirstName = "Claire";
+            TestItem.StaffLastName = "Goods";
+            TestItem.StaffSalary = 27000;
+            TestItem.StaffGender = "F";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set thisstaff to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.StaffNo = PrimaryKey;
+            //modify test data
+            TestItem.Active = false;
+            TestItem.StaffNo = 7;
+            TestItem.StaffFirstName = "Claire";
+            TestItem.StaffLastName = "Johns";
+            TestItem.StaffSalary = 28000;
+            TestItem.StaffGender = "F";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set the record based on the new test data
+            AllStaff.ThisStaff = TestItem;
+            //update the record
+            AllStaff.Update();
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see that thisstaff matches the test data
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
+        [TestMethod]
+        public void ReportByStaffFirstNameMethodOk()
+        {
+            //create an instance of the class contaning unfiltered results
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create an instance of the filteres data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a blank string (should return all records)
+            FilteredStaff.ReportByStaffFirstName("");
+            //test to see that the 2 values r the same
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByStaffFirstNameNoneFound()
+        {
+            //create an instance of the filteres data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a name that doesnt exist
+            FilteredStaff.ReportByStaffFirstName("Kyra");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByStaffFirstNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //var to store outcome
+            Boolean Ok = true;
+            //apply a first name that doesnt exists'
+            FilteredStaff.ReportByStaffFirstName("Anas");
+            //check that the correct number of record are found
+            if (FilteredStaff.Count == 2)
+            {
+                //check that the first record is ID
+                if (FilteredStaff.StaffList[0].StaffNo != 66)
+                {
+                    Ok = false;
+                }
+                //check that the first record is ID 
+                if (FilteredStaff.StaffList[1].StaffNo != 67)
+                {
+                    Ok = false;
+                }
+            }
+            else
+            {
+                Ok = false;
+            }
+            //test to see that there are no record
+            Assert.IsTrue(Ok);
+        }
+
     }
 }

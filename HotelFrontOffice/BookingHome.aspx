@@ -19,11 +19,11 @@
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </p>
         <asp:Button ID="btnApply" runat="server" Text="Apply" Width="123px" />
-        <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" Width="123px" />
+        <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" Width="123px" OnClick="btnDisplayAll_Click" />
         <p>
             <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" Text="Add" />
-            <asp:Button ID="BtnEdit" runat="server" Text="Edit" />
-            <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+            <asp:Button ID="BtnEdit" runat="server" Text="Edit" OnClick="BtnEdit_Click" />
+            <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
         </p>
     </form>
 </body>

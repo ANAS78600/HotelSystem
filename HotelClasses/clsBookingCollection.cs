@@ -67,36 +67,88 @@ namespace HotelClasses
             return DB.Execute("sproc_tblBooking_Insert");
         }
 
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingID", mThisBooking.BookingID);
+            DB.AddParameter("@CustID", mThisBooking.CustID);
+            DB.AddParameter("@CustName", mThisBooking.CustName);
+            DB.AddParameter("@DaysNo", mThisBooking.DaysNo);
+            DB.AddParameter("@GuestNo", mThisBooking.GuestNo);
+            DB.AddParameter("@RoomID", mThisBooking.RoomID);
+            DB.AddParameter("@Active", mThisBooking.Active);
+            DB.Execute("sproc_tblBooking_Update");
+        }
+
         public clsBookingCollection()
         {
-            //var for index
-            Int32 Index = 0;
-            //var for record count
-            Int32 RecordCount = 0;
-            //object for data connection
+
             clsDataConnection DB = new clsDataConnection();
-            //exectute the stored procedure
             DB.Execute("sproc_tblBooking_SelectAll");
-            //get count of records
+            PopulateArray(DB);
+            //var for index
+            //Int32 Index = 0;
+            ////var for record count
+            //Int32 RecordCount = 0;
+            ////object for data connection
+            //clsDataConnection DB = new clsDataConnection();
+            ////exectute the stored procedure
+            //DB.Execute("sproc_tblBooking_SelectAll");
+            ////get count of records
+            //RecordCount = DB.Count;
+            ////While there are record to process
+            //while (Index < RecordCount)
+            //{
+            //    clsBooking ABooking = new clsBooking();
+            //    //read in fields from the active record
+            //    ABooking.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+            //    ABooking.BookingID = Convert.ToInt32(DB.DataTable.Rows[Index]["BookingID"]);
+            //    ABooking.CustID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustID"]);
+            //    ABooking.CustName = Convert.ToString(DB.DataTable.Rows[Index]["CustName"]);
+            //    ABooking.DaysNo = Convert.ToString(DB.DataTable.Rows[Index]["DaysNo"]);
+            //    ABooking.GuestNo = Convert.ToInt32(DB.DataTable.Rows[Index]["GuestNo"]);
+            //    ABooking.RoomID = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomID"]);
+            //    //add record to the private member variable
+            //    mBookingList.Add(ABooking);
+            //    //Point at the next record
+            //    Index++;
+            //}
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingID", mThisBooking.BookingID);
+            DB.Execute("sproc_tblBooking_Delete");
+        }
+
+        public void ReportByCustID(string CustID)
+        {
+            //Filters the records based on CustID
+            //Connect to DB
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustID", CustID);
+            DB.Execute("sproc_tblBooking_FilterByCustID");
+            PopulateArray(DB);
+        }
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
             RecordCount = DB.Count;
-            //While there are record to process
+            mBookingList = new List<clsBooking>();
             while (Index < RecordCount)
             {
                 clsBooking ABooking = new clsBooking();
-                //read in fields from the active record
                 ABooking.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                ABooking.BookingID = Convert.ToInt32(DB.DataTable.Rows[Index]["BookingID"]);
-                ABooking.CustID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustID"]);
-                ABooking.CustName = Convert.ToString(DB.DataTable.Rows[Index]["CustName"]);
-                ABooking.DaysNo = Convert.ToString(DB.DataTable.Rows[Index]["DaysNo"]);
+                ABooking.CustID= Convert.ToInt32(DB.DataTable.Rows[Index]["CustID"]);
+                ABooking.CustName= Convert.ToString(DB.DataTable.Rows[Index]["CustName"]);
+                ABooking.DaysNo= Convert.ToString(DB.DataTable.Rows[Index]["DaysNo"]);
+                ABooking.RoomID= Convert.ToInt32(DB.DataTable.Rows[Index]["RoomID"]);
                 ABooking.GuestNo = Convert.ToInt32(DB.DataTable.Rows[Index]["GuestNo"]);
-                ABooking.RoomID = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomID"]);
-                //add record to the private member variable
                 mBookingList.Add(ABooking);
-                //Point at the next record
                 Index++;
             }
         }
-
     }
 }

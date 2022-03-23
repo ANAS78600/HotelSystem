@@ -37,4 +37,9 @@ public partial class Delete : System.Web.UI.Page
         //delee the record
         SupplierBook.Delete();
     }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+
+    }
 }

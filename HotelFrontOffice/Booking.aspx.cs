@@ -8,9 +8,18 @@ using HotelClasses;
 
 public partial class Booking : System.Web.UI.Page
 {
+    Int32 BookingID;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        BookingID = Convert.ToInt32(Session["BookingID"]);
+        if (IsPostBack == false)
+        {
+            DisplayBookings();
+            if(BookingID != -1)
+            {
+                DisplayBookings();
+            }
+        }
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -20,33 +29,41 @@ public partial class Booking : System.Web.UI.Page
 
     protected void BtnOK_Click(object sender, EventArgs e)
     {
+        if (BookingID ==-1)
         {
             Add();
-            Response.Redirect("BookingHome.aspx");
-        }
-        clsBooking ABooking = new clsBooking();
-
-        string DaysNo = txtDaysNo.Text;
-        string CustName = txtCustName.Text;
-        string GuestNo = txtGuestNo.Text;
-        string CustID = txtCustID.Text;
-        string RoomID = txtRoomID.Text;
-        string Error = "";
-        Error = ABooking.Valid(CustID, DaysNo, CustName, GuestNo, RoomID);
-        if (Error =="")
-        {
-            ABooking.DaysNo = DaysNo;
-            ABooking.CustName = CustName;
-            ABooking.RoomID = Convert.ToInt32(RoomID);
-            ABooking.GuestNo = Convert.ToInt32(GuestNo);
-            ABooking.CustID = Convert.ToInt32(CustID);
-            Session["ABooking"] = ABooking;
-            Response.Write("BookingViewer.aspx");
         }
         else
         {
-            lblError.Text = Error;
+            Update();
         }
+        //{
+        //    Add();
+        //    Response.Redirect("BookingHome.aspx");
+        //}
+        //clsBooking ABooking = new clsBooking();
+
+        //string DaysNo = txtDaysNo.Text;
+        //string CustName = txtCustName.Text;
+        //string GuestNo = txtGuestNo.Text;
+        //string CustID = txtCustID.Text;
+        //string RoomID = txtRoomID.Text;
+        //string Error = "";
+        //Error = ABooking.Valid(CustID, DaysNo, CustName, GuestNo, RoomID);
+        //if (Error =="")
+        //{
+        //    ABooking.DaysNo = DaysNo;
+        //    ABooking.CustName = CustName;
+        //    ABooking.RoomID = Convert.ToInt32(RoomID);
+        //    ABooking.GuestNo = Convert.ToInt32(GuestNo);
+        //    ABooking.CustID = Convert.ToInt32(CustID);
+        //    Session["ABooking"] = ABooking;
+        //    Response.Write("BookingViewer.aspx");
+        //}
+        //else
+        //{
+        //    lblError.Text = Error;
+        //}
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -93,6 +110,39 @@ public partial class Booking : System.Web.UI.Page
             lblError.Text = "There was an issue with the data entered " + Error;
         }
     }
+
+    void Update()
+    {
+        HotelClasses.clsBookingCollection BookingRecord = new HotelClasses.clsBookingCollection();
+        string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoomID.Text);
+        if (Error == "")
+        {
+            BookingRecord.ThisBooking.Find(BookingID);
+            BookingRecord.ThisBooking.CustID = Convert.ToInt32(txtCustID);
+            BookingRecord.ThisBooking.CustName = txtCustName.Text;
+            BookingRecord.ThisBooking.DaysNo = txtDaysNo.Text;
+            BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo);
+            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID);
+            BookingRecord.Update();
+            Response.Redirect("Booking.aspx");
+        }
+         else
+         {
+            lblError.Text = "There were problems with the data entered : " + Error;
+         }
+       
+    }
+
+    void DisplayBookings()
+    {
+        clsBookingCollection BookingRecord = new clsBookingCollection();
+        BookingRecord.ThisBooking.Find(BookingID);
+        txtCustName.Text = BookingRecord.ThisBooking.CustName;
+        txtDaysNo.Text = BookingRecord.ThisBooking.DaysNo;
+        txtGuestNo.Text = BookingRecord.ThisBooking.GuestNo.ToString();
+        txtRoomID.Text = BookingRecord.ThisBooking.RoomID.ToString();
+    }
+
 
     protected void txtBookingId_TextChanged(object sender, EventArgs e)
     {

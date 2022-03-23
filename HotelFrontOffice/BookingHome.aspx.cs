@@ -36,7 +36,7 @@ public partial class BookingHome : System.Web.UI.Page
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-        //var to sore the primary key
+        //variable to sore the primary key
         Int32 BookingID;
         if(lstBooking.SelectedIndex != -1)
         {
@@ -58,7 +58,7 @@ public partial class BookingHome : System.Web.UI.Page
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
         Int32 BookingID;
-        if (lstBooking.SelectedIndex !=-1)
+        if (lstBooking.SelectedIndex != -1)
         {
             BookingID = Convert.ToInt32(lstBooking.SelectedValue);
             Session["BookingID"] = BookingID;
@@ -66,11 +66,16 @@ public partial class BookingHome : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to edit from the list";
         }
     }
 
     protected void btnApply_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void lstBooking_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }

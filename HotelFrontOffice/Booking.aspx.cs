@@ -24,7 +24,7 @@ public partial class Booking : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("BookingHome.aspx");
     }
 
     protected void BtnOK_Click(object sender, EventArgs e)
@@ -119,13 +119,13 @@ public partial class Booking : System.Web.UI.Page
         if (Error == "")
         {
             BookingRecord.ThisBooking.Find(BookingID);
-            BookingRecord.ThisBooking.CustID = Convert.ToInt32(txtCustID);
+            BookingRecord.ThisBooking.CustID = Convert.ToInt32(txtCustID.Text);
             BookingRecord.ThisBooking.CustName = txtCustName.Text;
             BookingRecord.ThisBooking.DaysNo = txtDaysNo.Text;
-            BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo);
-            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID);
+            BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo.Text);
+            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID.Text);
             BookingRecord.Update();
-            Response.Redirect("Booking.aspx");
+            Response.Redirect("BookingHome.aspx");
         }
          else
          {

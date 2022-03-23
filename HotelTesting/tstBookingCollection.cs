@@ -108,6 +108,18 @@ namespace HotelTesting
             Assert.AreEqual(AllBookings.ThisBooking, TestItem);
         }
 
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of class
+            clsBookingCollection AllBookings = new clsBookingCollection;
+            //Create test item
+            clsBooking TestItem = new clsBooking();
+            //var to store primary key
+            Int32 PrimaryKey = 0;
+
+        }
+
 
     }
 }

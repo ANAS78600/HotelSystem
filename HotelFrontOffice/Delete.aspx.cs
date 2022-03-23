@@ -12,11 +12,11 @@ public partial class Delete : System.Web.UI.Page
     //var to store the pk key value to be deleted
     Int32 SupplierNo;
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        //get the number of the supplier to be deledted from thr onject 
-        SupplierNo = Convert.ToInt32(Session["SupplierNo"]);
-    }
+    //protected void Page_Load(object sender, EventArgs e)
+    //{
+    //    //get the number of the supplier to be deledted from thr onject 
+    //    SupplierNo = Convert.ToInt32(Session["SupplierNo"]);
+    //}
 
     protected void btnYes_Click(object sender, EventArgs e)
     {

@@ -28,20 +28,10 @@ public partial class AStaff : System.Web.UI.Page
         }
     }
 
-    //event handler for the ok button
-    protected void btnOK_Click(object sender, EventArgs e)
+    protected void btnCancel_Click(object sender, EventArgs e)
     {
-        if (StaffNo == -1)
-        {
-            //Add new record
-            Add();
-        }
-        else
-        {
-            //update the record
-            Update();
-        }
-        
+        //redirect to the main page
+        Response.Redirect("StaffDefault.aspx");
     }
 
 
@@ -134,6 +124,7 @@ public partial class AStaff : System.Web.UI.Page
     {
         //create an instance of the staff book
         clsStaffCollection StaffBook = new clsStaffCollection();
+
         //find the record to update 
         StaffBook.ThisStaff.Find(StaffNo);
         //display this data for this record
@@ -146,5 +137,41 @@ public partial class AStaff : System.Web.UI.Page
 
     }
 
+    //event handler for the ok button
+    protected void btnOK_Click1(object sender, EventArgs e)
+    {
+        string ErrorMsg;
+        clsStaffCollection StaffBook = new clsStaffCollection();
+        ErrorMsg = StaffBook.ThisStaff.Valid(txtFirstName.Text, txtLastName.Text, txtSalary.Text, txtGender.Text, txtDateAdded.Text);
+        if (ErrorMsg == "")
+        {
+            if (StaffNo == -1)
+            {
+                StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
+                StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
+                StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+                StaffBook.ThisStaff.StaffGender = txtGender.Text;
+                StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                StaffBook.ThisStaff.Active = chkActive.Checked;
+                StaffBook.Add();
+            }
+            else
+            {
+                StaffBook.ThisStaff.Find(StaffNo);
+                StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
+                StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
+                StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+                StaffBook.ThisStaff.StaffGender = txtGender.Text;
+                StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                StaffBook.ThisStaff.Active = chkActive.Checked;
+                StaffBook.Update();
+            }
+            Response.Redirect("StaffDefault.aspx");
+        }
+        else
+        {
+            lblError.Text = ErrorMsg;
+        }
 
+    }
 }

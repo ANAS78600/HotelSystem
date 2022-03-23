@@ -8,12 +8,11 @@ using HotelClasses;
 
 public partial class StaffDefault : System.Web.UI.Page
 {
-    public int StaffNo { get; private set; }
-
+  
     protected void Page_Load(object sender, EventArgs e)
     {
-        //get the number of the address to be processed
-        StaffNo = Convert.ToInt32(Session["StaffNo"]);
+        //clear any existing error messages
+        lblError.Text = "";
         //if this is the first time the page is displayed
         if (IsPostBack == false)
         {
@@ -25,7 +24,7 @@ public partial class StaffDefault : System.Web.UI.Page
     void DisplayStaffFirstName()
     {
             //create an instance of the staff first name collection
-            HotelClasses.clsStaffCollection StaffFirstName = new HotelClasses.clsStaffCollection();
+            clsStaffCollection StaffFirstName = new clsStaffCollection();
             //set the data source to the list of names in the collection
             lstStaffFirstName.DataSource = StaffFirstName.StaffList;
             //set the name of the primary key
@@ -57,7 +56,7 @@ public partial class StaffDefault : System.Web.UI.Page
             //store the data in session object
             Session["StaffNo"] = StaffNo;
             //redirect to the delete page
-            Response.Redirect("StaffDefault.aspx");
+            Response.Redirect("StaffDelete.aspx");
         }
         //if no record has been selected
         else
@@ -69,7 +68,7 @@ public partial class StaffDefault : System.Web.UI.Page
 
     protected void btnDisplayAll_Click(object sender, EventArgs e)
     {
-        
+       
     }
 
 
@@ -92,9 +91,16 @@ public partial class StaffDefault : System.Web.UI.Page
         else
         {
             //display error message
-            lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to edit from the list";
         }
     }
 
 
+
+
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+
+    }
 }

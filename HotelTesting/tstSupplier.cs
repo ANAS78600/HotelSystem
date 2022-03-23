@@ -571,7 +571,7 @@ namespace HotelTesting
             //invoke the method
             Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -586,7 +586,7 @@ namespace HotelTesting
             //invoke the method
             Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -601,7 +601,7 @@ namespace HotelTesting
             //invoke the method
             Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -631,7 +631,7 @@ namespace HotelTesting
             //invoke the method
             Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -646,7 +646,7 @@ namespace HotelTesting
             //invoke the method
             Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -662,7 +662,7 @@ namespace HotelTesting
             //invoke the method
             Error = AnSupplier.Valid(SupplierFirstName, SupplierLastName, SupplierTel, SupplierAddress, DateAdded);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]

@@ -112,7 +112,7 @@ namespace HotelTesting
         public void DeleteMethodOK()
         {
             //create an instance of class
-            clsBookingCollection AllBookings = new clsBookingCollection;
+            clsBookingCollection AllBookings = new clsBookingCollection();
             //Create test item
             clsBooking TestItem = new clsBooking();
             //var to store primary key

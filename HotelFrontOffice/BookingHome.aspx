@@ -18,7 +18,7 @@
         <p>
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </p>
-        <asp:Button ID="btnApply" runat="server" Text="Apply" Width="123px" />
+        <asp:Button ID="btnApply" runat="server" Text="Apply" Width="123px" OnClick="btnApply_Click" />
         <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" Width="123px" OnClick="btnDisplayAll_Click" />
         <p>
             <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" Text="Add" />

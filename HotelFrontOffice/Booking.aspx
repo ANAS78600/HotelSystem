@@ -11,9 +11,9 @@
         <div>
             <asp:Button ID="BtnCancel" runat="server" OnClick="Button2_Click" style="z-index: 1; position: absolute; top: 499px" Text="Cancel" />
         </div>
-        <asp:TextBox ID="txtCustName" runat="server" style="z-index: 1; left: 172px; position: absolute; top: 279px; width: 122px;"></asp:TextBox>
-        <asp:TextBox ID="txtDaysNo" runat="server" style="z-index: 1; left: 176px; top: 198px; position: absolute"></asp:TextBox>
-        <asp:TextBox ID="txtGuestNo" runat="server" style="z-index: 1; left: 175px; top: 327px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="txtCustName" runat="server" style="z-index: 1; left: 172px; position: absolute; top: 279px; width: 122px;" Height="20px"></asp:TextBox>
+        <asp:TextBox ID="txtDaysNo" runat="server" style="z-index: 1; left: 176px; top: 198px; position: absolute" Height="20px"></asp:TextBox>
+        <asp:TextBox ID="txtGuestNo" runat="server" style="z-index: 1; left: 184px; top: 325px; position: absolute" Height="20px"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 20px; top: 463px; position: absolute"></asp:Label>
         <p>
             &nbsp;</p>
@@ -23,19 +23,19 @@
             <asp:Label ID="lblGuestNo" runat="server" style="z-index: 1; left: 12px; top: 326px; position: absolute" Text="Number of Guests"></asp:Label>
             <asp:Label ID="lblDaysNo" runat="server" style="z-index: 1; left: 10px; top: 203px; position: absolute" Text="Length of stay (days)" Visible="False"></asp:Label>
             <asp:Label ID="lblCustID" runat="server" style="z-index: 1; left: 5px; top: 238px; position: absolute" Text="CustomerID"></asp:Label>
-            <asp:TextBox ID="txtCustID" runat="server" style="z-index: 1; left: 174px; top: 239px; position: absolute; bottom: 304px;"></asp:TextBox>
+            <asp:TextBox ID="txtCustID" runat="server" style="z-index: 1; left: 174px; top: 239px; position: absolute; bottom: 304px;" Height="20px"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblRoomID" runat="server" Text="RoomID"></asp:Label>
         </p>
         <p>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
-            <asp:TextBox ID="txtRoomID" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtRoomID" runat="server" Height="20px"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="BtnOK" runat="server" OnClick="BtnOK_Click" style="z-index: 1; left: 107px; top: 499px; position: absolute" Text="Ok" />
             <asp:Label ID="lblBookingID" runat="server" style="z-index: 1; left: 18px; top: 371px; position: absolute; height: 19px;" Text="Booking ID"></asp:Label>
-            <asp:TextBox ID="txtBookingID" runat="server" style="z-index: 1; left: 180px; top: 373px; position: absolute" OnTextChanged="txtBookingId_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtBookingID" runat="server" style="z-index: 1; left: 180px; top: 373px; position: absolute" OnTextChanged="txtBookingId_TextChanged" Height="20px"></asp:TextBox>
         </p>
     </form>
 </body>

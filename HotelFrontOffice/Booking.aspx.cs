@@ -91,10 +91,10 @@ public partial class Booking : System.Web.UI.Page
     void Add()
     {
         
-        HotelClasses.clsBookingCollection BookingRecord = new HotelClasses.clsBookingCollection();
+        clsBookingCollection BookingRecord = new clsBookingCollection();
         //Validate the data
         string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoomID.Text);
-        if (Error =="")
+        if (Error == "")
         {
             //grab the data
             BookingRecord.ThisBooking.CustID = Convert.ToInt32(txtCustID.Text);
@@ -104,6 +104,7 @@ public partial class Booking : System.Web.UI.Page
             BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID.Text);
             //add the record
             BookingRecord.Add();
+            Response.Redirect("BookingHome.aspx");
         }
         else
         {

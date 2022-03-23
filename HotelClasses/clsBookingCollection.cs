@@ -122,13 +122,13 @@ namespace HotelClasses
             DB.Execute("sproc_tblBooking_Delete");
         }
 
-        public void ReportByCustID(string CustID)
+        public void ReportByCustName(string CustName)
         {
-            //Filters the records based on CustID
+            //Filters the records based on RoomID
             //Connect to DB
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@CustID", CustID);
-            DB.Execute("sproc_tblBooking_FilterByCustID");
+            DB.AddParameter("@CustName", CustName);
+            DB.Execute("sproc_tblBooking_FilterByCustName");
             PopulateArray(DB);
         }
         void PopulateArray(clsDataConnection DB)
@@ -140,6 +140,7 @@ namespace HotelClasses
             while (Index < RecordCount)
             {
                 clsBooking ABooking = new clsBooking();
+                ABooking.BookingID = Convert.ToInt32(DB.DataTable.Rows[Index]["BookingID"]);
                 ABooking.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
                 ABooking.CustID= Convert.ToInt32(DB.DataTable.Rows[Index]["CustID"]);
                 ABooking.CustName= Convert.ToString(DB.DataTable.Rows[Index]["CustName"]);

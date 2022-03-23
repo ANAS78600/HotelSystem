@@ -4,18 +4,34 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HotelClasses;
 
 public partial class BookingHome : System.Web.UI.Page
 {
+    Int32 BookingID;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        BookingID = Convert.ToInt32(Session["BookingID"]);
+        if (IsPostBack == false)
+        {
+            DisplayBookings();
+        }
+       
+    }
+    void DisplayBookings()
+    {
+        clsBookingCollection Bookings = new clsBookingCollection();
+        lstBooking.DataSource = Bookings.BookingList;
+        lstBooking.DataValueField = "BookingID";
+        lstBooking.DataValueField = "CustID";
+        lstBooking.DataValueField = "CustName";
+        lstBooking.DataBind();
     }
 
     protected void BtnAdd_Click(object sender, EventArgs e)
     {
         Session["BookingID"] = -1;
-        Response.Redirect("ABooking.aspx");
+        Response.Redirect("Booking.aspx");
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)
@@ -26,7 +42,7 @@ public partial class BookingHome : System.Web.UI.Page
         {
             BookingID = Convert.ToInt32(lstBooking.SelectedValue);
             Session["BookingID"] = BookingID;
-            Response.Redirect("Delete.aspx");
+            Response.Redirect("DeleteBooking.aspx");
         }
         else
         {
@@ -52,5 +68,10 @@ public partial class BookingHome : System.Web.UI.Page
         {
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+
     }
 }

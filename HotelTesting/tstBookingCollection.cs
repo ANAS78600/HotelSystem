@@ -171,35 +171,35 @@ namespace HotelTesting
             Assert.AreEqual(AllBookings.ThisBooking, TestItem);
         }
         [TestMethod]
-        public void ReportByCustIDMethodOK()
+        public void ReportByCustNameMethodOK()
         {
             clsBookingCollection AllBookings = new clsBookingCollection();
             clsBookingCollection FilteredBookings = new clsBookingCollection();
-            FilteredBookings.ReportByCustID("");
+            FilteredBookings.ReportByCustName ("");
             Assert.AreEqual(AllBookings.Count, FilteredBookings.Count);
         }
 
         [TestMethod]
-        public void ReportByCustIDNoneFound()
+        public void ReportByCustNameNoneFound()
         {
             clsBookingCollection FilteredBookings = new clsBookingCollection();
-            FilteredBookings.ReportByCustID("100000000");
+            FilteredBookings.ReportByCustName("100000000");
             Assert.AreEqual(0, FilteredBookings.Count);
         }
 
         [TestMethod]
-        public void ReportByCustIDTestDataFound()
+        public void ReportByCustNameTestDataFound()
         {
             clsBookingCollection FilteredBookings = new clsBookingCollection();
             Boolean OK = true;
-            FilteredBookings.ReportByCustID("300");
+            FilteredBookings.ReportByCustName("Jerry");
             if (FilteredBookings.Count == 2)
             {
-                if (FilteredBookings.BookingList[0].BookingID !=13)
+                if (FilteredBookings.BookingList[0].BookingID != 13)
                 {
                     OK = false;
                 }
-                if (FilteredBookings.BookingList[1].BookingID !=14)
+                if (FilteredBookings.BookingList[1].BookingID != 14)
                 {
                     OK = false;
                 }

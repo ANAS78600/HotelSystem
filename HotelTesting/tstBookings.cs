@@ -315,7 +315,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -331,7 +331,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -348,7 +348,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -365,7 +365,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -382,7 +382,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -448,7 +448,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -464,7 +464,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -480,7 +480,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -496,7 +496,7 @@ namespace HotelTesting
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
             //test whether result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -544,6 +544,275 @@ namespace HotelTesting
             //Invoke the method
             Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
 
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void GuestNoMinLessOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void GuestNoMin()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "1";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoMinPlusOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "2";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoMaxLessOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "5";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoMax()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "6";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoMaxPlusOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "7";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoMid()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "3";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoExtremeMax()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "100";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void GuestNoInvalidData()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string GuestNo = "Hello";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMinLessOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "0";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMin()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "1";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMinPlusOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "2";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMaxLessOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "19";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMax()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "20";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMaxPlusOne()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "21";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDMid()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "10";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDExtremeMax()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "200";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
+            //test whether result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomIDInvalidData()
+        {
+            //create an instance of the class
+            clsBooking ABooking = new clsBooking();
+            //create a variable to store error message
+            string Error = "";
+            //Create some test data to pass the method
+            string RoomID = "Hello";
+            //Invoke the method
+            Error = ABooking.Valid(CustID, CustName, DaysNo, GuestNo, RoomID);
             //test whether result is correct
             Assert.AreNotEqual(Error, "");
         }

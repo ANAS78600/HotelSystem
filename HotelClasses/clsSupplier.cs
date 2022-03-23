@@ -185,7 +185,7 @@ namespace HotelClasses
                 Error = Error + "The Supplier Tel may not be blank : ";
             }
             //if the tel is higher than 11 character
-            if (SupplierTel.Length < 11)
+            if (SupplierTel.Length< 11)
             {
                 //record the error
                 Error = Error + "The Supplier Tel must be less than 11 Digits : ";

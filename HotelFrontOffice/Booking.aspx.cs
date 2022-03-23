@@ -20,6 +20,10 @@ public partial class Booking : System.Web.UI.Page
 
     protected void BtnOK_Click(object sender, EventArgs e)
     {
+        {
+            Add();
+            Response.Redirect("BookingHome.aspx");
+        }
         clsBooking ABooking = new clsBooking();
 
         string DaysNo = txtDaysNo.Text;
@@ -33,8 +37,9 @@ public partial class Booking : System.Web.UI.Page
         {
             ABooking.DaysNo = DaysNo;
             ABooking.CustName = CustName;
-            //ABooking.GuestNo = GuestNo;
-            //ABooking.CustID = CustID;
+            ABooking.RoomID = Convert.ToInt32(RoomID);
+            ABooking.GuestNo = Convert.ToInt32(GuestNo);
+            ABooking.CustID = Convert.ToInt32(CustID);
             Session["ABooking"] = ABooking;
             Response.Write("BookingViewer.aspx");
         }
@@ -63,6 +68,29 @@ public partial class Booking : System.Web.UI.Page
             txtCustID.Text = ABooking.CustID.ToString();
             txtCustName.Text = ABooking.CustName;
             txtGuestNo.Text = ABooking.GuestNo.ToString();
+        }
+    }
+
+    void Add()
+    {
+        
+        HotelClasses.clsBookingCollection BookingRecord = new HotelClasses.clsBookingCollection();
+        //Validate the data
+        string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoomID.Text);
+        if (Error =="")
+        {
+            //grab the data
+            BookingRecord.ThisBooking.CustID = Convert.ToInt32(txtCustID.Text);
+            BookingRecord.ThisBooking.CustName = txtCustName.Text;
+            BookingRecord.ThisBooking.DaysNo = txtDaysNo.Text;
+            BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo.Text);
+            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID.Text);
+            //add the record
+            BookingRecord.Add();
+        }
+        else
+        {
+            lblError.Text = "There was an issue with the data entered " + Error;
         }
     }
 

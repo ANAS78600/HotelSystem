@@ -19,6 +19,28 @@
         <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 200px; top: 373px; position: absolute" Text="Display All" />
         <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 122px; top: 451px; position: absolute" Text="Edit" OnClick="btnEdit_Click" />
         <asp:Label ID="IblError" runat="server" style="z-index: 1; left: 64px; top: 256px; position: absolute" Text="[IblError]"></asp:Label>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="BtnHome" runat="server" OnClick="Button2_Click" Text="Home" Visible="False" />
+        <br />
     </form>
 </body>
 </html>

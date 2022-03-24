@@ -20,7 +20,28 @@
         <p>
             <asp:Label ID="lblEnterFirstName" runat="server" style="z-index: 1; left: 105px; top: 317px; position: absolute" Text="Please Enter First Name"></asp:Label>
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
         <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 95px; top: 405px; position: absolute" Text="Apply" Width="94px" />
+        <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Home" />
     </form>
 </body>
 </html>

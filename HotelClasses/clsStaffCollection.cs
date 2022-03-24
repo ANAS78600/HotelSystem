@@ -102,6 +102,7 @@ namespace HotelClasses
             clsDataConnection DB = new clsDataConnection();
             //set the parameter
             //DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            DB.AddParameter("StaffNo", mThisStaff.StaffNo);
             DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
             DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
             DB.AddParameter("@StaffSalary", mThisStaff.StaffSalary);

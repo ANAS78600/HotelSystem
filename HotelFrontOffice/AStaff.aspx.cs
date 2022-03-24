@@ -140,38 +140,47 @@ public partial class AStaff : System.Web.UI.Page
     //event handler for the ok button
     protected void btnOK_Click1(object sender, EventArgs e)
     {
-        string ErrorMsg;
-        clsStaffCollection StaffBook = new clsStaffCollection();
-        ErrorMsg = StaffBook.ThisStaff.Valid(txtFirstName.Text, txtLastName.Text, txtSalary.Text, txtGender.Text, txtDateAdded.Text);
-        if (ErrorMsg == "")
+        if (StaffNo == -1)
         {
-            if (StaffNo == -1)
-            {
-                StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
-                StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
-                StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
-                StaffBook.ThisStaff.StaffGender = txtGender.Text;
-                StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-                StaffBook.ThisStaff.Active = chkActive.Checked;
-                StaffBook.Add();
-            }
-            else
-            {
-                StaffBook.ThisStaff.Find(StaffNo);
-                StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
-                StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
-                StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
-                StaffBook.ThisStaff.StaffGender = txtGender.Text;
-                StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-                StaffBook.ThisStaff.Active = chkActive.Checked;
-                StaffBook.Update();
-            }
-            Response.Redirect("StaffDefault.aspx");
+            Add();
         }
         else
         {
-            lblError.Text = ErrorMsg;
+            Update();
         }
+        
+        //string ErrorMsg;
+        //clsStaffCollection StaffBook = new clsStaffCollection();
+        //ErrorMsg = StaffBook.ThisStaff.Valid(txtFirstName.Text, txtLastName.Text, txtSalary.Text, txtGender.Text, txtDateAdded.Text);
+        //if (ErrorMsg == "")
+        //{
+            //if (StaffNo == -1)
+            //{
+                //StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
+                //StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
+                //StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+                //StaffBook.ThisStaff.StaffGender = txtGender.Text;
+                //StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                //StaffBook.ThisStaff.Active = chkActive.Checked;
+                //StaffBook.Add();
+            //}
+            //else
+            //{
+                //StaffBook.ThisStaff.Find(StaffNo);
+                //StaffBook.ThisStaff.StaffFirstName = txtFirstName.Text;
+                //StaffBook.ThisStaff.StaffLastName = txtLastName.Text;
+                //StaffBook.ThisStaff.StaffSalary = Convert.ToInt32(txtSalary.Text);
+                //StaffBook.ThisStaff.StaffGender = txtGender.Text;
+                //StaffBook.ThisStaff.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+                //StaffBook.ThisStaff.Active = chkActive.Checked;
+                //StaffBook.Update();
+            //}
+            //Response.Redirect("StaffDefault.aspx");
+        //}
+        //else
+        //{
+            //lblError.Text = ErrorMsg;
+        //}
 
     }
 }

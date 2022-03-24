@@ -95,4 +95,11 @@ public partial class CustomerDefault : System.Web.UI.Page
             IblError.Text = "Please select a record to be deleted from the list";
         }
     }
+
+   
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("MainHome.aspx");
+    }
 }

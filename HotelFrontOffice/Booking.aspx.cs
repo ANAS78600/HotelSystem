@@ -81,10 +81,13 @@ public partial class Booking : System.Web.UI.Page
         if (Found == true)
         {
             //display values in the form
+            txtBookingID.Text = ABooking.BookingID.ToString();
             txtDaysNo.Text = ABooking.DaysNo.ToString();
             txtCustID.Text = ABooking.CustID.ToString();
             txtCustName.Text = ABooking.CustName;
             txtGuestNo.Text = ABooking.GuestNo.ToString();
+            txtRoom.Text = ABooking.RoomID.ToString();
+            chkOK.Checked = ABooking.Active;
         }
     }
 
@@ -93,7 +96,7 @@ public partial class Booking : System.Web.UI.Page
         
         clsBookingCollection BookingRecord = new clsBookingCollection();
         //Validate the data
-        string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoomID.Text);
+        string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoom.Text);
         if (Error == "")
         {
             //grab the data
@@ -101,7 +104,7 @@ public partial class Booking : System.Web.UI.Page
             BookingRecord.ThisBooking.CustName = txtCustName.Text;
             BookingRecord.ThisBooking.DaysNo = txtDaysNo.Text;
             BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo.Text);
-            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID.Text);
+            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoom.Text);
             //add the record
             BookingRecord.Add();
             Response.Redirect("BookingHome.aspx");
@@ -115,7 +118,7 @@ public partial class Booking : System.Web.UI.Page
     void Update()
     {
         HotelClasses.clsBookingCollection BookingRecord = new HotelClasses.clsBookingCollection();
-        string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoomID.Text);
+        string Error = BookingRecord.ThisBooking.Valid(txtCustID.Text, txtCustName.Text, txtDaysNo.Text, txtGuestNo.Text, txtRoom.Text);
         if (Error == "")
         {
             BookingRecord.ThisBooking.Find(BookingID);
@@ -124,7 +127,7 @@ public partial class Booking : System.Web.UI.Page
             BookingRecord.ThisBooking.CustName = txtCustName.Text;
             BookingRecord.ThisBooking.DaysNo = txtDaysNo.Text;
             BookingRecord.ThisBooking.GuestNo = Convert.ToInt32(txtGuestNo.Text);
-            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoomID.Text);
+            BookingRecord.ThisBooking.RoomID = Convert.ToInt32(txtRoom.Text);
             BookingRecord.ThisBooking.Active = Convert.ToBoolean(chkOK.Checked);
             BookingRecord.Update();
             Response.Redirect("BookingHome.aspx");
@@ -140,10 +143,12 @@ public partial class Booking : System.Web.UI.Page
     {
         clsBookingCollection BookingRecord = new clsBookingCollection();
         BookingRecord.ThisBooking.Find(BookingID);
+        txtCustID.Text = BookingRecord.ThisBooking.CustID.ToString();
+        txtBookingID.Text = BookingRecord.ThisBooking.BookingID.ToString();
         txtCustName.Text = BookingRecord.ThisBooking.CustName;
         txtDaysNo.Text = BookingRecord.ThisBooking.DaysNo;
         txtGuestNo.Text = BookingRecord.ThisBooking.GuestNo.ToString();
-        txtRoomID.Text = BookingRecord.ThisBooking.RoomID.ToString();
+        txtRoom.Text = BookingRecord.ThisBooking.RoomID.ToString();
     }
 
 
@@ -153,6 +158,26 @@ public partial class Booking : System.Web.UI.Page
     }
 
     protected void txtDaysNo_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtRoomID_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        
+    }
+
+    protected void txtCustID_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtCustName0_TextChanged(object sender, EventArgs e)
     {
 
     }

@@ -182,7 +182,7 @@ namespace HotelClasses
             }
             catch
             {
-                Error = Error + "Please enter as a valid number character : ";
+                Error = Error + "Please enter as a valid GuestNumber : ";
             }
 
             try

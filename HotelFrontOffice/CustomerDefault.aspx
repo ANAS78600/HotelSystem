@@ -17,10 +17,41 @@
         <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 55px; top: 364px; position: absolute; right: 1154px" Text="Apply" Width="94px" />
         <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 189px; top: 365px; position: absolute" Text="Display All" />
         <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 46px; top: 439px; position: absolute; width: 55px" Text="Add" OnClick="btnAdd_Click"  />
-        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 136px; top: 442px; position: absolute; right: 1112px; height: 26px;" Text="Edit" Width="55px" OnClick="btnEdit_Click" />
+        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 133px; top: 441px; position: absolute; right: 1297px; height: 26px;" Text="Edit" Width="55px" OnClick="btnEdit_Click" />
         <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 232px; top: 443px; position: absolute" Text="Delete" OnClick="btnDelete_Click" />
         <asp:Label ID="IblError" runat="server" style="z-index: 1; left: 71px; top: 274px; position: absolute" Text="[IblError]"></asp:Label>
         <asp:ListBox ID="lstFirstName" runat="server" style="z-index: 1; left: 53px; top: 29px; position: absolute; height: 224px; width: 251px" OnSelectedIndexChanged="lstFirstName_SelectedIndexChanged"></asp:ListBox>
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="btnHome" runat="server" BorderStyle="Outset" Height="24px" OnClick="Button1_Click" Text="Home" Width="94px" />
         </p>
     </form>
 </body>

@@ -25,6 +25,7 @@
             <asp:Button ID="BtnEdit" runat="server" Text="Edit" OnClick="BtnEdit_Click" />
             <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
         </p>
+        <asp:Button ID="BtnHome" runat="server" OnClick="BtnHome_Click" Text="Home" />
     </form>
 </body>
 </html>

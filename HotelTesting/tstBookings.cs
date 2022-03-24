@@ -111,7 +111,7 @@ namespace HotelTesting
             //create a Boolean to store the results of the validation
             Boolean Found = false;
             //make test data
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //invoke method
             Found = ABooking.Find(BookingID);
             //Test the result
@@ -128,11 +128,11 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the ID
-            if (ABooking.BookingID !=1)
+            if (ABooking.BookingID !=69)
             {
                 OK = false;
             }
@@ -150,7 +150,7 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the ID
@@ -172,7 +172,7 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the ID
@@ -194,7 +194,7 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the ID
@@ -216,7 +216,7 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the property
@@ -238,7 +238,7 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the property
@@ -260,7 +260,7 @@ namespace HotelTesting
             //Boolean variable to store result of data if it is ok We are assuming it is)
             Boolean OK = true;
             //Making some data for the test
-            Int32 BookingID = 1;
+            Int32 BookingID = 69;
             //Invoke method
             Found = ABooking.Find(BookingID);
             //Check the property

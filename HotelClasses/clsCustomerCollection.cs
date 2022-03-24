@@ -59,16 +59,81 @@ namespace HotelClasses
         //contructor for the class
         public clsCustomerCollection()
         {
+            //object for data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedue
+            DB.Execute("sproc_tblCustomer_SelectAll");
+            //populate the arrays list with the data table
+            populateArray(DB);
+        }
+        
+    
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@Tel", mThisCustomer.Tel);
+            DB.AddParameter("@DateAdded", mThisCustomer.DateAdded);
+            DB.AddParameter("@Active", mThisCustomer.Active);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thiscustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Delete");
+        }
+
+        public void Update()
+        {
+            //update an existing record based of the value of thiscustomer
+            //connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the store procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@Tel", mThisCustomer.Tel);
+            DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@DateAdded", mThisCustomer.DateAdded);
+            DB.AddParameter("@Active", mThisCustomer.Active);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Update");
+        }
+
+        public void ReportByFirstName(string FirstName)
+        {
+            //fillters the records based on a full or partial post code
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send customer first name parameter to the database
+            DB.AddParameter("@FirstName", FirstName);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByFirstName");
+            //populate the array list with the data table
+            populateArray(DB);
+        }
+        void populateArray(clsDataConnection DB)
+        {
+            //POPULATES the array list based on the data table in the parameter DB
             //var for the index 
             Int32 Index = 0;
             //var to store the record count 
-            Int32 RecordCount = 0;
-            //object for data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure 
-            DB.Execute("sproc_tblCustomer_SelectAll");
+            Int32 RecordCount;
             //get the count of records
             RecordCount = DB.Count;
+            //clear the private array list
+            mCustomerList = new List<clsCustomer>();
             //while there are records to process
             while (Index < RecordCount)
             {
@@ -87,9 +152,7 @@ namespace HotelClasses
                 //point at the next record
                 Index++;
             }
-
         }
-    
     }
 
 }

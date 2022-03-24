@@ -8,10 +8,23 @@ using HotelClasses;
 
 public partial class AnCustomer : System.Web.UI.Page
 {
-    public object lblError;
+    Int32 CustomerID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Get the number of the address to be processed
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if (IsPostBack == false)
+        {
+            //populate the list of customers
+            DisplayCustomer();
+            //if this is not a new record
+            if (CustomerID != -1)
+            {
+                //display the current data for the record
+                DisplayCustomer();
+            }
+        }
 
     }
 
@@ -22,47 +35,18 @@ public partial class AnCustomer : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsCustomer
-        clsCustomer AnCustomer = new clsCustomer();
-        //Capture the customer ID
-        string CustomerID = txtCustomerID.Text;
-        //Capture the First Name
-        string FirstName = txtFirstName.Text;
-        //Capture the last name 
-        string LastName = txtLastName.Text;
-        //Capture the address
-        string Address = txtAddress.Text;
-        //Capture the Tel
-        string Tel = txtTel.Text;
-        //Capture The dateadded
-        string DateAdded = txtDateAdded.Text;
-        //variable to store any error messages
-        string Error = "";
-        //Validate the data
-        Error = AnCustomer.Valid(CustomerID, FirstName, LastName, Tel, Address, DateAdded);
-        if (Error == "")
+        if (CustomerID == -1)
         {
-            //capture the firstname
-            AnCustomer.FirstName = FirstName;
-            //capture the lastname
-            AnCustomer.LastName = LastName;
-            //capture the address
-            AnCustomer.Address = Address;
-            //capture the Tel
-            AnCustomer.Tel = Tel;
-            //capture the date added
-            AnCustomer.DateAdded = Convert.ToDateTime(DateAdded);
-            //store the address in the session object
-            Session["AnCustomer"] = AnCustomer;
-            //Redirect to the viewers page
-            Response.Write("CustomerViewer.aspx");
+            //add the new record
+            Add();
         }
         else
         {
-            //display the error message
-            IblError.Text = Error;
+            //update the record
+            Update();
         }
     }
+
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
@@ -87,6 +71,90 @@ public partial class AnCustomer : System.Web.UI.Page
             txtTel.Text = AnCustomer.Tel;
             txtDateAdded.Text = AnCustomer.DateAdded.ToString();
         }
+    }
+    //function for adding new record
+    void Add()
+    {
+        //create an instance of the CUSTOMER class
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //validate the data on the web form
+        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtTel.Text, txtDateAdded.Text);
+        //if the data id OK then add it to the object
+        if (Error == "")
+        {
+            //get the data entered by the user
+            CustomerBook.ThisCustomer.FirstName = txtFirstName.Text;
+            CustomerBook.ThisCustomer.LastName = txtLastName.Text;
+            CustomerBook.ThisCustomer.Address = txtAddress.Text;
+            CustomerBook.ThisCustomer.Tel = txtTel.Text;
+            CustomerBook.ThisCustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            CustomerBook.ThisCustomer.Active = chkActive.Checked;
+            //add the record
+            CustomerBook.Add();
+            //all done so redirect back to the main page
+            Response.Redirect("CustomerDefault.aspx");
+
+        }
+        else
+        {
+            //report an error
+            IblError.Text = "There were problems with the data entered " + Error;
+        }
+    }
+    public void CustomerDelete()
+    {
+        //create a new instance of the customer book
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        int CustomerID = 0;
+        //find the record to delete
+        CustomerBook.ThisCustomer.Find(CustomerID);
+        //delete the record
+        CustomerBook.Delete();
+    }
+    public void Update()
+    {
+        //create an instance of the supplier book
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //validate the data on the web form
+        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtTel.Text, txtDateAdded.Text);
+        //if the data id OK then add it to the object
+        if (Error == "")
+        {
+            //find the record to update
+            CustomerBook.ThisCustomer.Find(CustomerID);
+            //get the data entered by the user
+            CustomerBook.ThisCustomer.FirstName = txtFirstName.Text;
+            CustomerBook.ThisCustomer.LastName = txtLastName.Text;
+            CustomerBook.ThisCustomer.Tel = txtTel.Text;
+            CustomerBook.ThisCustomer.Address = txtAddress.Text;
+            CustomerBook.ThisCustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            CustomerBook.ThisCustomer.Active = chkActive.Checked;
+            //add the record
+            CustomerBook.Update();
+            //all done so redirect back to the main page
+            Response.Redirect("CustomerDefault.aspx");
+
+        }
+        else
+        {
+            //report an error
+            IblError.Text = "There were problems with the data entered " + Error;
+        }
+    }
+
+    void DisplayCustomer()
+    {
+        //create an instance of the supplier book
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //find the record to update 
+        CustomerBook.ThisCustomer.Find(CustomerID);
+        //display this data for this record
+        txtFirstName.Text = CustomerBook.ThisCustomer.FirstName;
+        txtLastName.Text = CustomerBook.ThisCustomer.LastName;
+        txtTel.Text = CustomerBook.ThisCustomer.Tel;
+        txtAddress.Text = CustomerBook.ThisCustomer.Address;
+        txtDateAdded.Text = CustomerBook.ThisCustomer.DateAdded.ToString();
+        chkActive.Checked = CustomerBook.ThisCustomer.Active;
     }
 }
 

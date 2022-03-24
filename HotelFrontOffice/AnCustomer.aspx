@@ -27,7 +27,7 @@
         <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 197px; top: 201px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 194px; top: 237px; position: absolute"></asp:TextBox>
         <asp:Button ID="btnFind" runat="server" style="z-index: 1; left: 400px; top: 100px; position: absolute" Text="Find" OnClick="btnFind_Click" />
-        <asp:CheckBox ID="Active" runat="server" style="z-index: 1; left: 63px; top: 286px; position: absolute" Text="Active" />
+        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 63px; top: 286px; position: absolute" Text="Active" />
         </p>
     </form>
 </body>

@@ -45,16 +45,30 @@ namespace HotelTesting
             Assert.AreEqual(AllCustomer.CustomerList, TestList);
         }
         [TestMethod]
-        public void CountPropertyOK()
+        public void ListAndCountOk()
         {
-            //create an instance of the class we want to create 
+            //create an instance of the class we want to make
             clsCustomerCollection AllCustomer = new clsCustomerCollection();
-            //create some test data to assign to the propery 
-            Int32 SomeCount = 5;
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsCustomer> TestList = new List<clsCustomer>();
+            //add an item to the list 
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //set the properties
+            TestItem.Active = true;
+            TestItem.CustomerID = 25;
+            TestItem.FirstName = "Kieran";
+            TestItem.LastName = "Tierney";
+            TestItem.Tel = "0765435674";
+            TestItem.Address = "3 Locked Road";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //add the item to the test list
+            TestList.Add(TestItem);
             //assign the data to the property
-            AllCustomer.Count = SomeCount;
-            //test to see the two values are the same 
-            Assert.AreNotEqual(AllCustomer.Count, SomeCount);
+            AllCustomer.CustomerList = TestList;
+            //test to see that the 2 values r the same
+            Assert.AreEqual(AllCustomer.Count, TestList.Count);
         }
 
         [TestMethod]

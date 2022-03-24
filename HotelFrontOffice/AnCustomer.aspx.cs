@@ -30,7 +30,7 @@ public partial class AnCustomer : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("CustomerDefault.aspx");
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ public partial class AnCustomer : System.Web.UI.Page
         //create an instance of the CUSTOMER class
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         //validate the data on the web form
-        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtTel.Text, txtDateAdded.Text);
+        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtAddress.Text, txtDateAdded.Text);
         //if the data id OK then add it to the object
         if (Error == "")
         {
@@ -116,7 +116,7 @@ public partial class AnCustomer : System.Web.UI.Page
         //create an instance of the supplier book
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         //validate the data on the web form
-        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtTel.Text, txtDateAdded.Text);
+        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtAddress.Text, txtDateAdded.Text);
         //if the data id OK then add it to the object
         if (Error == "")
         {

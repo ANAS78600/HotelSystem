@@ -30,7 +30,12 @@ public partial class CustomerDelete : System.Web.UI.Page
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         //find the record
         CustomerBook.ThisCustomer.Find(CustomerID);
-        //delee the record
+        //delete the record
         CustomerBook.Delete();
+    }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerDefault.aspx");
     }
 }

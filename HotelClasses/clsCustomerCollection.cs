@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelClasses
 {
@@ -85,7 +82,7 @@ namespace HotelClasses
 
         public void Delete()
         {
-            //deletes the record pointed to by thiscustomer
+            //deletes the record pointed to by thisCustomer
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure

@@ -14,8 +14,8 @@ public partial class Delete : System.Web.UI.Page
 
     //protected void Page_Load(object sender, EventArgs e)
     //{
-    //    //get the number of the supplier to be deledted from thr onject 
-    //    SupplierNo = Convert.ToInt32(Session["SupplierNo"]);
+    //   //get the number of the supplier to be deledted from thr onject 
+    //   SupplierNo = Convert.ToInt32(Session["SupplierNo"]);
     //}
 
     protected void btnYes_Click(object sender, EventArgs e)
@@ -39,6 +39,11 @@ public partial class Delete : System.Web.UI.Page
     }
 
     protected void btnNo_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
     {
 
     }

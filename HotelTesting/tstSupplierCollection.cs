@@ -250,7 +250,7 @@ namespace HotelTesting
                 Ok = false;
             }
             //test to see that there are no record
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
 
     }
